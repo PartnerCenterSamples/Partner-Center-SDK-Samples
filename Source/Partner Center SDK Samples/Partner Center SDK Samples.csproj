@@ -76,6 +76,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Analytics\GetCustomerLicensesDeploymentAnalytics.cs" />
+    <Compile Include="Analytics\GetCustomerLicensesUsageAnalytics.cs" />
+    <Compile Include="Analytics\GetPartnerLicensesDeploymentAnalytics.cs" />
+    <Compile Include="Analytics\GetPartnerLicensesUsageAnalytics.cs" />
     <Compile Include="Auditing\QueryAuditRecords.cs" />
     <Compile Include="Auditing\SearchAuditRecords.cs" />
     <Compile Include="Configuration\ApplicationAuthenticationSection.cs" />
@@ -89,6 +93,8 @@
     <Compile Include="CustomerDirectoryRoles\GetCustomerDirectoryRoles.cs" />
     <Compile Include="CustomerDirectoryRoles\GetCustomerDirectoryRoleUserMembers.cs" />
     <Compile Include="CustomerDirectoryRoles\RemoveCustomerUserMemberFromDirectoryRole.cs" />
+    <Compile Include="CustomerServiceCosts\GetCustomerServiceCostsLineItems.cs" />
+    <Compile Include="CustomerServiceCosts\GetCustomerServiceCostsSummary.cs" />
     <Compile Include="CustomerSubscribedSkus\GetCustomerSubscribedSkus.cs" />
     <Compile Include="Customers\GetCustomerQualification.cs" />
     <Compile Include="Customers\UpdateCustomerQualification.cs" />
@@ -173,6 +179,7 @@
     <Compile Include="Subscriptions\UpdateSubscription.cs" />
     <Compile Include="Subscriptions\AddSubscriptionAddOn.cs" />
     <Compile Include="Utilization\GetAzureSubscriptionUtilization.cs" />
+    <Compile Include="Validations\ValidateAddress.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config">

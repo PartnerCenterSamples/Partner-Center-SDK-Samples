@@ -187,6 +187,19 @@ namespace Microsoft.Store.PartnerCenter.Samples.Helpers
         }
 
         /// <summary>
+        /// Reads a string from the console (it can be empty as it is intended to be used with optional values).
+        /// </summary>
+        /// <param name="promptMessage">The prompt message to display.</param>
+        /// <returns>The string input from the console.</returns>
+        public string ReadOptionalString(string promptMessage)
+        {
+            string input = string.Empty;
+            Console.Write("{0}: ", promptMessage);
+            input = Console.ReadLine();
+            return input;
+        }
+
+        /// <summary>
         /// Writes an object and its properties recursively to the console. Properties are automatically indented.
         /// </summary>
         /// <param name="object">The object to print to the console.</param>

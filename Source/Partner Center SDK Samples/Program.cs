@@ -6,10 +6,11 @@
 
 namespace Microsoft.Store.PartnerCenter.Samples
 {
-    using System;
+    using Analytics;
     using Context;
     using CustomerDirectoryRoles;
     using Customers;
+    using CustomerServiceCosts;
     using CustomerSubscribedSkus;
     using CustomerUser;
     using IndirectModel;
@@ -26,6 +27,7 @@ namespace Microsoft.Store.PartnerCenter.Samples
     using ServiceRequests;
     using Subscriptions;
     using Utilization;
+    using Validations;
 
     /// <summary>
     /// The main program class for the partner center .NET SDK samples.
@@ -57,7 +59,10 @@ namespace Microsoft.Store.PartnerCenter.Samples
                 Program.GetRateCardScenarios(context),
                 Program.GetIndirectModelScenarios(context),
                 Program.GetServiceIncidentScenarios(context),
-                Program.GetUtilizationScenarios(context)
+                Program.GetUtilizationScenarios(context),
+                Program.GetPartnerAnalyticsScenarios(context),
+                Program.GetCustomerServiceCostsScenarios(context),
+                Program.GetAddressValidationsScenarios(context)
             };
 
             // run the main scenario
@@ -149,8 +154,8 @@ namespace Microsoft.Store.PartnerCenter.Samples
                 new GetPagedCustomers(context, context.Configuration.Scenario.CustomerPageSize),
                 new AggregatePartnerScenario("Customer filtering", customerFilteringScenarios, context),
                 new GetCustomerDetails(context),
-                new GetCustomerQualification(context), 
-                new UpdateCustomerQualification(context), 
+                new GetCustomerQualification(context),
+                new UpdateCustomerQualification(context),
                 new DeleteCustomerFromTipAccount(context),
                 new GetCustomerManagedServices(context),
                 new GetCustomerRelationshipRequest(context),
@@ -363,6 +368,55 @@ namespace Microsoft.Store.PartnerCenter.Samples
         private static IPartnerScenario GetUtilizationScenarios(ScenarioContext context)
         {
             return new AggregatePartnerScenario("Utilization samples", new[] { new GetAzureSubscriptionUtilization(context) }, context);
+        }
+
+        /// <summary>
+        /// Gets the partner analytics scenarios.
+        /// </summary>
+        /// <param name="context">A scenario context.</param>
+        /// <returns>The Partner Analytics scenarios.</returns>
+        private static IPartnerScenario GetPartnerAnalyticsScenarios(IScenarioContext context)
+        {
+            var partnerAnalyticsScenarios = new IPartnerScenario[]
+            {
+                new GetPartnerLicensesDeploymentAnalytics(context),
+                new GetPartnerLicensesUsageAnalytics(context),
+                new GetCustomerLicensesDeploymentAnalytics(context),
+                new GetCustomerLicensesUsageAnalytics(context)
+            };
+
+            return new AggregatePartnerScenario("Partner Analytics samples", partnerAnalyticsScenarios, context);
+        }
+
+        /// <summary>
+        /// Gets the customer service costs scenarios.
+        /// </summary>
+        /// <param name="context">A scenario context.</param>
+        /// <returns>The customer service costs scenarios.</returns>
+        private static IPartnerScenario GetCustomerServiceCostsScenarios(IScenarioContext context)
+        {
+            var customerServiceCostsScenarios = new IPartnerScenario[]
+            {
+                new GetCustomerServiceCostsSummary(context),
+                new GetCustomerServiceCostsLineItems(context),
+            };
+
+            return new AggregatePartnerScenario("Customer service costs samples", customerServiceCostsScenarios, context);
+        }
+
+        /// <summary>
+        /// Gets the address validation scenarios.
+        /// </summary>
+        /// <param name="context">A scenario context.</param>
+        /// <returns>The address validation scenarios.</returns>
+        private static IPartnerScenario GetAddressValidationsScenarios(IScenarioContext context)
+        {
+            var addressValidationScenarios = new IPartnerScenario[]
+            {
+                new ValidateAddress(context)
+            };
+
+            return new AggregatePartnerScenario("Address validation samples", addressValidationScenarios, context);
         }
     }
 }
