@@ -11,8 +11,8 @@ namespace Microsoft.Store.PartnerCenter.Samples.Context
     using Configuration;
     using Helpers;
     using IdentityModel.Clients.ActiveDirectory;
-    using PartnerCenter;
-    using Extensions;
+    using Store.PartnerCenter;
+    using Store.PartnerCenter.Extensions;
 
     /// <summary>
     /// Scenario context implementation class.
@@ -35,7 +35,6 @@ namespace Microsoft.Store.PartnerCenter.Samples.Context
         public ScenarioContext()
         {
             PartnerService.Instance.ApiRootUrl = this.Configuration.PartnerService.PartnerServiceApiEndpoint.ToString();
-            PartnerService.Instance.ApplicationName = "Partner Center .NET SDK Samples";
         }
 
         /// <summary>

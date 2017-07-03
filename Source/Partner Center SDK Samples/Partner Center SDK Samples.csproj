@@ -49,16 +49,16 @@
       <HintPath>..\..\packages\Microsoft.IdentityModel.Clients.ActiveDirectory.2.16.204221202\lib\net45\Microsoft.IdentityModel.Clients.ActiveDirectory.WindowsForms.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="Microsoft.Store.PartnerCenter, Version=1.4.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
-      <HintPath>..\..\packages\Microsoft.Store.PartnerCenter.1.4.0\lib\net45\Microsoft.Store.PartnerCenter.dll</HintPath>
+    <Reference Include="Microsoft.Store.PartnerCenter, Version=1.4.0.0, Culture=neutral, PublicKeyToken=872fbc9102191257, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Microsoft.Store.PartnerCenter.1.5.0-beta4\lib\Net45\Microsoft.Store.PartnerCenter.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="Microsoft.Store.PartnerCenter.Extensions, Version=1.4.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
-      <HintPath>..\..\packages\Microsoft.Store.PartnerCenter.1.4.0\lib\net45\Microsoft.Store.PartnerCenter.Extensions.dll</HintPath>
+    <Reference Include="Microsoft.Store.PartnerCenter.Extensions, Version=1.4.0.0, Culture=neutral, PublicKeyToken=872fbc9102191257, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Microsoft.Store.PartnerCenter.1.5.0-beta4\lib\Net45\Microsoft.Store.PartnerCenter.Extensions.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="Microsoft.Store.PartnerCenter.Models, Version=1.4.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
-      <HintPath>..\..\packages\Microsoft.Store.PartnerCenter.1.4.0\lib\net45\Microsoft.Store.PartnerCenter.Models.dll</HintPath>
+    <Reference Include="Microsoft.Store.PartnerCenter.Models, Version=1.4.0.0, Culture=neutral, PublicKeyToken=872fbc9102191257, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Microsoft.Store.PartnerCenter.1.5.0-beta4\lib\Net45\Microsoft.Store.PartnerCenter.Models.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="Newtonsoft.Json, Version=6.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
@@ -76,12 +76,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Analytics\GetCustomerLicensesDeploymentAnalytics.cs" />
-    <Compile Include="Analytics\GetCustomerLicensesUsageAnalytics.cs" />
     <Compile Include="Analytics\GetPartnerLicensesDeploymentAnalytics.cs" />
     <Compile Include="Analytics\GetPartnerLicensesUsageAnalytics.cs" />
     <Compile Include="Auditing\QueryAuditRecords.cs" />
     <Compile Include="Auditing\SearchAuditRecords.cs" />
+    <Compile Include="Auditing\SearchAuditRecordsByCustomerId.cs" />
+    <Compile Include="Auditing\SearchAuditRecordsByResourceType.cs" />
     <Compile Include="Configuration\ApplicationAuthenticationSection.cs" />
     <Compile Include="Configuration\ScenarioSettingsSection.cs" />
     <Compile Include="Configuration\UserAuthenticationSection.cs" />
@@ -96,6 +96,8 @@
     <Compile Include="CustomerServiceCosts\GetCustomerServiceCostsLineItems.cs" />
     <Compile Include="CustomerServiceCosts\GetCustomerServiceCostsSummary.cs" />
     <Compile Include="CustomerSubscribedSkus\GetCustomerSubscribedSkus.cs" />
+    <Compile Include="Analytics\GetCustomerLicensesDeploymentAnalytics.cs" />
+    <Compile Include="Analytics\GetCustomerLicensesUsageAnalytics.cs" />
     <Compile Include="Customers\GetCustomerQualification.cs" />
     <Compile Include="Customers\UpdateCustomerQualification.cs" />
     <Compile Include="Customers\UpdateCustomerBillingProfile.cs" />
@@ -109,8 +111,13 @@
     <Compile Include="Customers\CreateCustomer.cs" />
     <Compile Include="Customers\ValidateCustomerAddress.cs" />
     <Compile Include="CustomerUser\CreateCustomerUser.cs" />
+    <Compile Include="CustomerUser\CustomerUserAssignedGroup1AndGroup2Licenses.cs" />
+    <Compile Include="CustomerUser\CustomerUserAssignedGroup1Licenses.cs" />
+    <Compile Include="CustomerUser\CustomerUserAssignedGroup2Licenses.cs" />
     <Compile Include="CustomerUser\CustomerUserAssignedLicenses.cs" />
+    <Compile Include="CustomerUser\CustomerUserAssignGroup1Licenses.cs" />
     <Compile Include="CustomerUser\CustomerUserAssignLicenses.cs" />
+    <Compile Include="CustomerUser\CustomerUserAssignGroup2Licenses.cs" />
     <Compile Include="CustomerUser\CustomerUserRestore.cs" />
     <Compile Include="CustomerUser\DeleteCustomerUser.cs" />
     <Compile Include="CustomerUser\GetCustomerInactiveUsers.cs" />
@@ -170,16 +177,20 @@
     <Compile Include="ServiceRequests\GetPartnerServiceRequestDetails.cs" />
     <Compile Include="ServiceRequests\GetServiceRequestSupportTopics.cs" />
     <Compile Include="ServiceRequests\UpdatePartnerServiceRequest.cs" />
+    <Compile Include="Subscriptions\ConvertTrialSubscription.cs" />
     <Compile Include="Subscriptions\GetSubscription.cs" />
+    <Compile Include="Subscriptions\GetSubscriptionProvisioningStatus.cs" />
     <Compile Include="Subscriptions\GetSubscriptionsByOrder.cs" />
     <Compile Include="Subscriptions\GetSubscriptions.cs" />
     <Compile Include="RatedUsage\GetSubscriptionUsageRecords.cs" />
     <Compile Include="RatedUsage\GetSubscriptionUsageSummary.cs" />
+    <Compile Include="Subscriptions\GetSubscriptionSupportContact.cs" />
+    <Compile Include="Subscriptions\UpdateSubscriptionSupportContact.cs" />
     <Compile Include="Subscriptions\UpgradeSubscription.cs" />
     <Compile Include="Subscriptions\UpdateSubscription.cs" />
     <Compile Include="Subscriptions\AddSubscriptionAddOn.cs" />
     <Compile Include="Utilization\GetAzureSubscriptionUtilization.cs" />
-    <Compile Include="Validations\ValidateAddress.cs" />
+    <Compile Include="Validations\AddressValidation.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config">

@@ -6,6 +6,7 @@
 
 namespace Microsoft.Store.PartnerCenter.Samples
 {
+    using System;
     using Analytics;
     using Context;
     using CustomerDirectoryRoles;
@@ -126,7 +127,12 @@ namespace Microsoft.Store.PartnerCenter.Samples
                 new GetPagedCustomerUsers(context),
                 new GetCustomerUserDirectoryRoles(context),
                 new CustomerUserAssignedLicenses(context),
+                new CustomerUserAssignedGroup1AndGroup2Licenses(context),
+                new CustomerUserAssignedGroup1Licenses(context),
+                new CustomerUserAssignedGroup2Licenses(context),
                 new CustomerUserAssignLicenses(context),
+                new CustomerUserAssignGroup1Licenses(context),
+                new CustomerUserAssignGroup2Licenses(context),
                 new GetCustomerInactiveUsers(context),
                 new CustomerUserRestore(context)
             };
@@ -215,9 +221,13 @@ namespace Microsoft.Store.PartnerCenter.Samples
                 new GetSubscription(context),
                 new GetSubscriptions(context),
                 new GetSubscriptionsByOrder(context),
+                new GetSubscriptionSupportContact(context),
+                new UpdateSubscriptionSupportContact(context),
+                new GetSubscriptionProvisioningStatus(context),
                 new UpdateSubscription(context),
                 new UpgradeSubscription(context),
-                new AddSubscriptionAddOn(context)
+                new AddSubscriptionAddOn(context),
+                new ConvertTrialSubscription(context),
             };
 
             return new AggregatePartnerScenario("Subscription samples", subscriptionScenarios, context);
@@ -313,7 +323,9 @@ namespace Microsoft.Store.PartnerCenter.Samples
             var profileScenarios = new IPartnerScenario[]
             {
                 new QueryAuditRecords(context),
-                new SearchAuditRecords("Filter by company name", AuditRecordSearchField.CompanyName, context)
+                new SearchAuditRecords("Filter by company name", AuditRecordSearchField.CompanyName, context),
+                new SearchAuditRecordsByCustomerId("Filter by Customer Id", AuditRecordSearchField.CustomerId, context),
+                new SearchAuditRecordsByResourceType("Filter by Resource Type (Eg. Order, Customer, or Subscription)", AuditRecordSearchField.ResourceType, context)
             };
 
             return new AggregatePartnerScenario("Auditing samples", profileScenarios, context);

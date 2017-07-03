@@ -37,24 +37,27 @@ namespace Microsoft.Store.PartnerCenter.Samples.Customers
             {
                 CompanyProfile = new CustomerCompanyProfile()
                 {
-                    Domain = string.Format(CultureInfo.InvariantCulture, "SampleApplication{0}.{1}", new Random().Next(), this.Context.Configuration.Scenario.CustomerDomainSuffix)
+                    Domain = string.Format(CultureInfo.InvariantCulture, 
+                        "WingtipToys{0}.{1}", 
+                        new Random().Next(), 
+                        this.Context.Configuration.Scenario.CustomerDomainSuffix)
                 },
                 BillingProfile = new CustomerBillingProfile()
                 {
                     Culture = "EN-US",
-                    Email = "SomeEmail@Outlook.com",
+                    Email = "Gena@wingtiptoys.com",
                     Language = "En",
-                    CompanyName = "Some Company" + new Random().Next(),
+                    CompanyName = "Wingtip Toys" + new Random().Next(),
                     DefaultAddress = new Address()
                     {
-                        FirstName = "Admin",
-                        LastName = "In Test",
+                        FirstName = "Gena",
+                        LastName = "Soto",
                         AddressLine1 = "One Microsoft Way",
                         City = "Redmond",
                         State = "WA",
                         Country = "US",
                         PostalCode = "98052",
-                        PhoneNumber = "4257778899"
+                        PhoneNumber = "4255550101"
                     }
                 },
                 AssociatedPartnerId = indirectResellerId

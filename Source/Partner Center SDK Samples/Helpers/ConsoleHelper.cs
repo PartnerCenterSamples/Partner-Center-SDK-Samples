@@ -217,7 +217,7 @@ namespace Microsoft.Store.PartnerCenter.Samples.Helpers
             string indentString = new string(' ', indent * TabSize);
             Type objectType = @object.GetType();
             var collection = @object as ICollection;
-            
+
             if (objectType.Assembly.FullName == typeof(ResourceBase).Assembly.FullName && objectType.IsClass)
             {
                 // this is a partner SDK model class, iterate over it's properties recursively

@@ -229,7 +229,7 @@ namespace Microsoft.Store.PartnerCenter.Samples
         }
 
         /// <summary>
-        /// Obtains an subscription ID to work with from the configuration if set there or prompts the user to enter it.
+        /// Obtains a subscription ID to work with from the configuration if set there or prompts the user to enter it.
         /// </summary>
         /// <param name="customerId">The customer ID who owns the subscription.</param>
         /// <param name="promptMessage">An optional custom prompt message.</param>
@@ -256,7 +256,38 @@ namespace Microsoft.Store.PartnerCenter.Samples
                 Console.WriteLine("Found subscription ID: {0} in configuration.", subscriptionId);
             }
 
-            return subscriptionId;
+            return subscriptionId.Trim();
+        }
+
+        /// <summary>
+        /// Obtains the product SKU ID by asking the user to enter it after displaying customer subscribed SKUs.
+        /// </summary>
+        /// <param name="customerId">The customer identifier of the customer that has the subscribed SKUs.</param>
+        /// <param name="promptMessage">An optional custom prompt message.</param>
+        /// <returns></returns>
+        protected string ObtainProductSkuId(string customerId, string promptMessage = default(string))
+        {
+            var partnerOperations = this.Context.UserPartnerOperations;
+            string productSkuId = string.Empty;
+
+            if (string.IsNullOrWhiteSpace(productSkuId))
+            {
+                // get the customer subscribed Skus and let the user enter the productSku Id afterwards
+                this.Context.ConsoleHelper.StartProgress("Retrieving customer subscribed SKUs");
+                var customerSubscribedSkus = partnerOperations.Customers.ById(customerId).SubscribedSkus.Get();
+                this.Context.ConsoleHelper.StopProgress();
+                this.Context.ConsoleHelper.WriteObject(customerSubscribedSkus, "Customer Subscribed SKUs");
+
+                Console.WriteLine();
+                productSkuId = this.Context.ConsoleHelper.ReadNonEmptyString(
+                    string.IsNullOrWhiteSpace(promptMessage) ? "Enter the product SKU ID" : promptMessage, "Product SKU ID can't be empty");
+            }
+            else
+            {
+                Console.WriteLine("Found product SKU ID: {0} in configuration.", productSkuId);
+            }
+
+            return productSkuId.Trim();
         }
 
         /// <summary>
@@ -286,7 +317,7 @@ namespace Microsoft.Store.PartnerCenter.Samples
                 Console.WriteLine("Found {0}: {1} in configuration.", title, value);
             }
 
-            return value;
+            return value.Trim();
         }
     }
 }

@@ -1,5 +1,5 @@
 ﻿// -----------------------------------------------------------------------
-// <copyright file="QueryAuditRecords.cs" company="Microsoft">
+// <copyright file="SearchAuditRecordsByCustomerId.cs" company="Microsoft">
 //      Copyright (c) Microsoft Corporation.  All rights reserved.
 // </copyright>
 // -----------------------------------------------------------------------
@@ -8,19 +8,28 @@ namespace Microsoft.Store.PartnerCenter.Samples.Orders
 {
     using System;
     using System.Globalization;
+    using Microsoft.Store.PartnerCenter.Models.Auditing;
     using Models.Query;
 
     /// <summary>
-    /// A scenario that retrieves a partner's audit records.
+    /// A scenario that retrieves a partner's audit records and filter by customer company name.
     /// </summary>
-    public class QueryAuditRecords : BasePartnerScenario
+    public class SearchAuditRecordsByCustomerId : BasePartnerScenario
     {
         /// <summary>
-        /// Initializes a new instance of the <see cref="QueryAuditRecords"/> class.
+        /// The search field.
         /// </summary>
+        private readonly AuditRecordSearchField auditRecordSearchField;
+
+        /// <summary>
+        /// Initializes a new instance of the <see cref="SearchAuditRecordsByCustomerId"/> class.
+        /// </summary>
+        /// <param name="title">The scenario title.</param>
+        /// <param name="auditRecordSearchField">The search field.</param>
         /// <param name="context">The scenario context.</param>
-        public QueryAuditRecords(IScenarioContext context) : base("Query for the partner's audit records.", context)
+        public SearchAuditRecordsByCustomerId(string title, AuditRecordSearchField auditRecordSearchField, IScenarioContext context) : base(title, context)
         {
+            this.auditRecordSearchField = auditRecordSearchField;
         }
 
         /// <summary>
@@ -29,13 +38,17 @@ namespace Microsoft.Store.PartnerCenter.Samples.Orders
         protected override void RunScenario()
         {
             var partnerOperations = this.Context.UserPartnerOperations;
-            const int PageSize = 10;
+
+            string customerId = this.Context.ConsoleHelper.ReadNonEmptyString("Enter a Customer Id to search for", "No Customer Id entered");
             var startDate = new DateTime(DateTime.Now.Year, DateTime.Now.Month, 01);
 
             this.Context.ConsoleHelper.StartProgress(
-                string.Format(CultureInfo.InvariantCulture, "Retrieving the partner's audit records - start date: {0} | page size: {1}", startDate, PageSize));
+                string.Format(CultureInfo.InvariantCulture, "Retrieving the partner's audit records - start date: {0}", startDate));
 
-            var auditRecordsPage = partnerOperations.AuditRecords.Query(startDate.Date, query: QueryFactory.Instance.BuildIndexedQuery(PageSize));
+            var filter = new SimpleFieldFilter(AuditRecordSearchField.CustomerId.ToString(), FieldFilterOperation.Equals, customerId);
+
+            var auditRecordsPage = partnerOperations.AuditRecords.Query(startDate.Date, query: QueryFactory.Instance.BuildSimpleQuery(filter));
+
             this.Context.ConsoleHelper.StopProgress();
 
             // create a customer enumerator which will aid us in traversing the customer pages

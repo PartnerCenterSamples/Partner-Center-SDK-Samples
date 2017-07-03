@@ -34,15 +34,21 @@ namespace Microsoft.Store.PartnerCenter.Samples.IndirectModel
             var partnerOperations = this.Context.UserPartnerOperations;
             this.Context.ConsoleHelper.StartProgress("Getting customers of the indirect reseller");
 
+            // Create a simple field filter.
             var filter = new SimpleFieldFilter(
                 CustomerSearchField.IndirectReseller.ToString(), 
                 FieldFilterOperation.StartsWith, 
                 indirectResellerId);
 
-            var customersPage = partnerOperations.Customers.Query(QueryFactory.Instance.BuildSimpleQuery(filter));
+            // Create an iQuery object to pass to the Query method.
+            var myQuery = QueryFactory.Instance.BuildSimpleQuery(filter);
+
+            // Get the collection of matching customers.
+            var customersPage = partnerOperations.Customers.Query(myQuery);
+
             this.Context.ConsoleHelper.StopProgress();
 
-            // create a customer enumerator which will aid us in traversing the customer pages
+            // Create a customer enumerator which will aid us in traversing the customer pages.
             var customersEnumerator = partnerOperations.Enumerators.Customers.Create(customersPage);
             int pageNumber = 1;
 
@@ -50,7 +56,7 @@ namespace Microsoft.Store.PartnerCenter.Samples.IndirectModel
 
             while (customersEnumerator.HasValue)
             {
-                // print the current customer results page
+                // Print the current customer results page.
                 this.Context.ConsoleHelper.WriteObject(customersEnumerator.Current, string.Format(CultureInfo.InvariantCulture, "Customer Page: {0}", pageNumber++));
 
                 Console.WriteLine();
@@ -59,7 +65,7 @@ namespace Microsoft.Store.PartnerCenter.Samples.IndirectModel
 
                 this.Context.ConsoleHelper.StartProgress("Getting next customers page");
 
-                // get the next page of customers
+                // Get the next page of customers.
                 customersEnumerator.Next();
 
                 this.Context.ConsoleHelper.StopProgress();

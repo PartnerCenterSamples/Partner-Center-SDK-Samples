@@ -27,7 +27,7 @@ namespace Microsoft.Store.PartnerCenter.Samples.Customers
         }
 
         /// <summary>
-        /// executes the create customer scenario.
+        /// Executes the create customer scenario.
         /// </summary>
         protected override void RunScenario()
         {
@@ -41,20 +41,20 @@ namespace Microsoft.Store.PartnerCenter.Samples.Customers
                 },
                 BillingProfile = new CustomerBillingProfile()
                 {
-                    Culture = "EN-US",
-                    Email = "SomeEmail@Outlook.com",
-                    Language = "En",
-                    CompanyName = "Some Company" + new Random().Next(),
+                    Culture = "en-US",
+                    Email = "gena@relecloud2.com",
+                    Language = "en",
+                    CompanyName = "Relecloud" + new Random().Next(),
                     DefaultAddress = new Address()
                     {
-                        FirstName = "Admin",
-                        LastName = "In Test",
-                        AddressLine1 = "One Microsoft Way",
+                        FirstName = "Gena",
+                        LastName = "Soto",
+                        AddressLine1 = "4567 Main Street",
                         City = "Redmond",
                         State = "WA",
                         Country = "US",
-                        PostalCode = "98052",
-                        PhoneNumber = "4257778899"
+                        PhoneNumber = "4255550101",
+                        PostalCode = "98052"
                     }
                 }
             };

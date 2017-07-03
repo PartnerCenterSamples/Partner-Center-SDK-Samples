@@ -6,6 +6,11 @@
 
 namespace Microsoft.Store.PartnerCenter.Samples.Analytics
 {
+    using System;
+    using System.Globalization;
+    using Store.PartnerCenter.Models;
+    using Store.PartnerCenter.Models.Customers;
+
     /// <summary>
     /// Gets partner's licenses usage analytics.
     /// </summary>

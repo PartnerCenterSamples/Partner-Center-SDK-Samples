@@ -25,7 +25,7 @@ namespace Microsoft.Store.PartnerCenter.Samples.Customers
         /// Initializes a new instance of the <see cref="FilterCustomers"/> class.
         /// </summary>
         /// <param name="title">The scenario title.</param>
-        /// <param name="customerSearchField">The search filed.</param>
+        /// <param name="customerSearchField">The search field.</param>
         /// <param name="context">The scenario context.</param>
         public FilterCustomers(string title, CustomerSearchField customerSearchField, IScenarioContext context) : base(title, context)
         {
@@ -42,10 +42,14 @@ namespace Microsoft.Store.PartnerCenter.Samples.Customers
 
             this.Context.ConsoleHelper.StartProgress("Filtering");
 
-            var customers = partnerOperations.Customers.Query(QueryFactory.Instance.BuildSimpleQuery(new SimpleFieldFilter(
+            var fieldFilter = new SimpleFieldFilter(
                 this.customerSearchField.ToString(),
                 FieldFilterOperation.StartsWith,
-                searchPrefix)));
+                searchPrefix);
+
+            var myQuery = QueryFactory.Instance.BuildSimpleQuery(fieldFilter);
+            
+            var customers = partnerOperations.Customers.Query(myQuery);
 
             this.Context.ConsoleHelper.StopProgress();
             this.Context.ConsoleHelper.WriteObject(customers, "Customer matches");

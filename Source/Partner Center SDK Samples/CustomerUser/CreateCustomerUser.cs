@@ -41,9 +41,9 @@ namespace Microsoft.Store.PartnerCenter.Samples.CustomerUser
             var customerUserToCreate = new CustomerUser()
             {
                 PasswordProfile = new PasswordProfile() { ForceChangePassword = true, Password = "Password!1" },
-                DisplayName = "Admin",
-                FirstName = "Admin",
-                LastName = "In Test",
+                DisplayName = "Kate",
+                FirstName = "Kate",
+                LastName = "Nichols",
                 UsageLocation = "US",
                 UserPrincipalName = Guid.NewGuid().ToString("N") + "@" + selectedCustomer.CompanyProfile.Domain
             };

@@ -6,6 +6,11 @@
 
 namespace Microsoft.Store.PartnerCenter.Samples.Analytics
 {
+    using System;
+    using System.Globalization;
+    using Store.PartnerCenter.Models;
+    using Store.PartnerCenter.Models.Customers;
+
     /// <summary>
     /// Gets partner's licenses deployment analytics.
     /// </summary>
@@ -23,12 +28,12 @@ namespace Microsoft.Store.PartnerCenter.Samples.Analytics
         /// Executes the scenario.
         /// </summary>
         protected override void RunScenario()
-        {
+        {   
             var partnerOperations = this.Context.UserPartnerOperations;
             this.Context.ConsoleHelper.StartProgress("Retrieving partner licenses deployment analytics");
 
             var partnerLicensesDeploymentAnalytics = partnerOperations.Analytics.Licenses.Deployment.Get();
-
+            
             this.Context.ConsoleHelper.StopProgress();
             this.Context.ConsoleHelper.WriteObject(partnerLicensesDeploymentAnalytics, "Partner licenses deployment analytics");
         }
