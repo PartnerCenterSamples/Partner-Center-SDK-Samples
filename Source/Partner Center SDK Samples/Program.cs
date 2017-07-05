@@ -6,7 +6,6 @@
 
 namespace Microsoft.Store.PartnerCenter.Samples
 {
-    using System;
     using Analytics;
     using Context;
     using CustomerDirectoryRoles;

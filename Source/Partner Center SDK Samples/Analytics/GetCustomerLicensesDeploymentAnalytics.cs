@@ -6,11 +6,6 @@
 
 namespace Microsoft.Store.PartnerCenter.Samples.Analytics
 {
-    using System;
-    using System.Globalization;
-    using Store.PartnerCenter.Models;
-    using Store.PartnerCenter.Models.Customers;
-
     /// <summary>
     /// Gets a single customer's licenses deployment analytics.
     /// </summary>

@@ -6,8 +6,6 @@
 
 namespace Microsoft.Store.PartnerCenter.Samples.CustomerServiceCosts
 {
-    using System;
-    using Exceptions;
     using Models.ServiceCosts;
 
     /// <summary>

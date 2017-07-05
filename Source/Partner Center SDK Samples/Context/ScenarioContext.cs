@@ -35,6 +35,7 @@ namespace Microsoft.Store.PartnerCenter.Samples.Context
         public ScenarioContext()
         {
             PartnerService.Instance.ApiRootUrl = this.Configuration.PartnerService.PartnerServiceApiEndpoint.ToString();
+            PartnerService.Instance.ApplicationName = "Partner Center .NET SDK Samples";
         }
 
         /// <summary>
