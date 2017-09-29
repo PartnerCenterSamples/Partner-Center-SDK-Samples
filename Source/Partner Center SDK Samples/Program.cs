@@ -28,6 +28,7 @@ namespace Microsoft.Store.PartnerCenter.Samples
     using Subscriptions;
     using Utilization;
     using Validations;
+    using DevicesDeployment;
 
     /// <summary>
     /// The main program class for the partner center .NET SDK samples.
@@ -62,7 +63,8 @@ namespace Microsoft.Store.PartnerCenter.Samples
                 Program.GetUtilizationScenarios(context),
                 Program.GetPartnerAnalyticsScenarios(context),
                 Program.GetCustomerServiceCostsScenarios(context),
-                Program.GetAddressValidationsScenarios(context)
+                Program.GetAddressValidationsScenarios(context),
+                Program.GetDevicesScenarios(context)
             };
 
             // run the main scenario
@@ -100,6 +102,31 @@ namespace Microsoft.Store.PartnerCenter.Samples
             };
 
             return new AggregatePartnerScenario("Customer Subscribed Skus", customerSubscribedSkusScenarios, context);
+        }
+
+        /// <summary>
+        /// Gets the Devices scenarios.
+        /// </summary>
+        /// <param name="context">A scenario context.</param>
+        /// <returns>The Devices scenarios.</returns>
+        private static IPartnerScenario GetDevicesScenarios(ScenarioContext context)
+        {
+            var devicesScenarios = new IPartnerScenario[]
+            {
+                new CreateConfigurationPolicy(context),
+                new GetAllConfigurationPolicies(context),
+                new UpdateConfigurationPolicy(context),                
+                new DeleteConfigurationPolicy(context),
+                new CreateDeviceBatch(context),
+                new GetDevicesBatches(context),
+                new CreateDevices(context),
+                new GetDevices(context),
+                new UpdateDevicesPolicy(context),
+                new DeleteDevice(context),                
+                new GetBatchUploadStatus(context)
+            };
+
+            return new AggregatePartnerScenario("Devices", devicesScenarios, context);
         }
 
         /// <summary>

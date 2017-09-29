@@ -103,6 +103,62 @@ namespace Microsoft.Store.PartnerCenter.Samples
         }
 
         /// <summary>
+        /// Obtains a configuration policy ID to work with from the configuration if set there or prompts the user to enter it.
+        /// </summary>
+        /// <param name="promptMessage">An optional custom prompt message.</param>
+        /// <returns>A configuration policy ID.</returns>
+        protected string ObtainConfigurationPolicyId(string promptMessage = default(string))
+        {
+            return this.ObtainValue(
+                this.Context.Configuration.Scenario.DefaultConfigurationPolicyId,
+                "Configuration Policy Id",
+                string.IsNullOrWhiteSpace(promptMessage) ? "Enter the configuration policy ID" : promptMessage,
+                "The configuration policy ID can't be empty");
+        }
+
+        /// <summary>
+        /// Obtains a device batch ID to work with from the configuration if set there or prompts the user to enter it.
+        /// </summary>
+        /// <param name="promptMessage">An optional custom prompt message.</param>
+        /// <returns>A device batch ID.</returns>
+        protected string ObtainDeviceBatchId(string promptMessage = default(string))
+        {
+            return this.ObtainValue(
+                this.Context.Configuration.Scenario.DefaultDeviceBatchId,
+                "Device Batch Id",
+                string.IsNullOrWhiteSpace(promptMessage) ? "Enter the device batch ID" : promptMessage,
+                "The device batch ID can't be empty");
+        }
+
+        /// <summary>
+        /// Obtains a device ID to work with from the configuration if set there or prompts the user to enter it.
+        /// </summary>
+        /// <param name="promptMessage">An optional custom prompt message.</param>
+        /// <returns>A device ID.</returns>
+        protected string ObtainDeviceId(string promptMessage = default(string))
+        {
+            return this.ObtainValue(
+                 this.Context.Configuration.Scenario.DefaultDeviceId,
+                 "Device Id",
+                 string.IsNullOrWhiteSpace(promptMessage) ? "Enter the device ID" : promptMessage,
+                 "The device ID can't be empty");
+        }
+
+        /// <summary>
+        /// Obtains a tracking ID to work with from the configuration if set there or prompts the user to enter it.
+        /// </summary>
+        /// <param name="promptMessage">An optional custom prompt message.</param>
+        /// <returns>A batch upload status tracking ID.</returns>
+        protected string ObtainBatchUploadStatusTrackingId(string promptMessage = default(string))
+        {
+            return this.ObtainValue(
+                 this.Context.Configuration.Scenario.DefaultBatchUploadStatusTrackingId,
+                 "Batch Upload Status Tracking Id",
+                 string.IsNullOrWhiteSpace(promptMessage) ? "Enter the Batch Upload Status Tracking ID" : promptMessage,
+                 "The Batch Upload Status Tracking ID can't be empty");
+        }
+
+        /// <summary>
         /// Obtains an indirect reseller ID to work with from the configuration if set there or prompts the user to enter it.
         /// </summary>
         /// <param name="promptMessage">An optional custom prompt message.</param>

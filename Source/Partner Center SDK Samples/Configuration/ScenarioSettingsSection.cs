@@ -84,6 +84,51 @@ namespace Microsoft.Store.PartnerCenter.Samples.Configuration
             }
         }
 
+
+        /// <summary>
+        /// Gets the configured ID of the configuration policy.
+        /// </summary>
+        public string DefaultConfigurationPolicyId
+        {
+            get
+            {
+                return this.ConfigurationSection["DefaultConfigurationPolicyId"];
+            }
+        }
+
+        /// <summary>
+        /// Gets the configured ID of the Devices Batch.
+        /// </summary>
+        public string DefaultDeviceBatchId
+        {
+            get
+            {
+                return this.ConfigurationSection["DefaultDeviceBatchId"];
+            }
+        }
+
+        /// <summary>
+        /// Gets the configured ID of the Device.
+        /// </summary>
+        public string DefaultDeviceId
+        {
+            get
+            {
+                return this.ConfigurationSection["DefaultDeviceId"];
+            }
+        }
+
+        /// <summary>
+        /// Gets the configured ID of the Batch Upload Status Tracking.
+        /// </summary>
+        public string DefaultBatchUploadStatusTrackingId
+        {
+            get
+            {
+                return this.ConfigurationSection["DefaultBatchUploadStatusTrackingId"];
+            }
+        }
+
         /// <summary>
         /// Gets the ID of the indirect reseller id whose details should be read.
         /// </summary>
