@@ -58,6 +58,7 @@ namespace Microsoft.Store.PartnerCenter.Samples
                 Program.GetCustomerDirectoryRolesScenarios(context),
                 Program.GetAuditingScenarios(context),
                 Program.GetRateCardScenarios(context),
+                Program.GetSharedRateCardScenarios(context),
                 Program.GetIndirectModelScenarios(context),
                 Program.GetServiceIncidentScenarios(context),
                 Program.GetUtilizationScenarios(context),
@@ -192,7 +193,8 @@ namespace Microsoft.Store.PartnerCenter.Samples
                 new GetCustomerManagedServices(context),
                 new GetCustomerRelationshipRequest(context),
                 new UpdateCustomerBillingProfile(context),
-                new ValidateCustomerAddress(context)
+                new ValidateCustomerAddress(context),
+                new DeletePartnerCustomerRelationship(context)
             };
 
             return new AggregatePartnerScenario("Customer samples", customerScenarios, context);
@@ -365,6 +367,16 @@ namespace Microsoft.Store.PartnerCenter.Samples
         private static IPartnerScenario GetRateCardScenarios(ScenarioContext context)
         {
             return new AggregatePartnerScenario("Rate card samples", new[] { new GetAzureRateCard(context) }, context);
+        }
+
+        /// <summary>
+        /// Gets the azure shared(CSL) rate card scenarios.
+        /// </summary>
+        /// <param name="context">A scenario context.</param>
+        /// <returns>azure shared(csl) rate card scenarios.</returns>
+        private static IPartnerScenario GetSharedRateCardScenarios(ScenarioContext context)
+        {
+            return new AggregatePartnerScenario("Azure Shared(CSL) Rate card samples", new[] { new GetAzureSharedRateCard(context) }, context);
         }
 
         /// <summary>
