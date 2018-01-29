@@ -31,7 +31,7 @@ namespace Microsoft.Store.PartnerCenter.Samples.Subscriptions
 
             this.Context.ConsoleHelper.StartProgress("Retrieving customer subscriptions by order");
 
-            var customerSubscriptionsByOrder = partnerOperations.Customers.ById(customerId).Subscriptions.ById(orderID).Get();
+            var customerSubscriptionsByOrder = partnerOperations.Customers.ById(customerId).Subscriptions.ByOrder(orderID).Get();
 
             this.Context.ConsoleHelper.StopProgress();
             this.Context.ConsoleHelper.WriteObject(customerSubscriptionsByOrder, "Customer Subscriptions By Order");
