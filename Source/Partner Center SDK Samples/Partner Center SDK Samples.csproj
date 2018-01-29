@@ -95,6 +95,7 @@
     <Compile Include="CustomerSubscribedSkus\GetCustomerSubscribedSkus.cs" />
     <Compile Include="Analytics\GetCustomerLicensesDeploymentAnalytics.cs" />
     <Compile Include="Analytics\GetCustomerLicensesUsageAnalytics.cs" />
+    <Compile Include="Customers\DeleteAllCustomers.cs" />
     <Compile Include="Customers\DeletePartnerCustomerRelationship.cs" />
     <Compile Include="Customers\GetCustomerQualification.cs" />
     <Compile Include="Customers\UpdateCustomerQualification.cs" />

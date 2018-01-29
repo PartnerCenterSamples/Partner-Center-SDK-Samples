@@ -190,6 +190,7 @@ namespace Microsoft.Store.PartnerCenter.Samples
                 new GetCustomerQualification(context),
                 new UpdateCustomerQualification(context),
                 new DeleteCustomerFromTipAccount(context),
+                new DeleteAllCustomers(context), 
                 new GetCustomerManagedServices(context),
                 new GetCustomerRelationshipRequest(context),
                 new UpdateCustomerBillingProfile(context),
