@@ -271,6 +271,76 @@ namespace Microsoft.Store.PartnerCenter.Samples
         }
 
         /// <summary>
+        /// Obtains a product ID to work with from the configuration if set there or prompts the user to enter it.
+        /// </summary>
+        /// <param name="promptMessage">An optional custom prompt message.</param>
+        /// <returns>The product ID.</returns>
+        protected string ObtainProductId(string promptMessage = default(string))
+        {
+            return this.ObtainValue(
+                this.Context.Configuration.Scenario.DefaultProductId,
+                "Product Id",
+                string.IsNullOrWhiteSpace(promptMessage) ? "Enter the product ID" : promptMessage,
+                "The Product ID can't be empty");
+        }
+
+        /// <summary>
+        /// Obtains a sku ID to work with from the configuration if set there or prompts the user to enter it.
+        /// </summary>
+        /// <param name="promptMessage">An optional custom prompt message.</param>
+        /// <returns>The sku ID.</returns>
+        protected string ObtainSkuId(string promptMessage = default(string))
+        {
+            return this.ObtainValue(
+                this.Context.Configuration.Scenario.DefaultSkuId,
+                "Sku Id",
+                string.IsNullOrWhiteSpace(promptMessage) ? "Enter the sku ID" : promptMessage,
+                "The Sku ID can't be empty");
+        }
+
+        /// <summary>
+        /// Obtains the availability ID to work with from the configuration if set there or prompts the user to enter it.
+        /// </summary>
+        /// <param name="promptMessage">An optional custom prompt message.</param>
+        /// <returns>The availability ID.</returns>
+        protected string ObtainAvailabilityId(string promptMessage = default(string))
+        {
+            return this.ObtainValue(
+                this.Context.Configuration.Scenario.DefaultAvailabilityId,
+                "Availability Id",
+                string.IsNullOrWhiteSpace(promptMessage) ? "Enter the availability ID" : promptMessage,
+                "The Availability ID can't be empty");
+        }
+
+        /// <summary>
+        /// Obtains a catalogItemId to work with from the configuration if set there or prompts the user to enter it.
+        /// </summary>
+        /// <param name="promptMessage">An optional custom prompt message.</param>
+        /// <returns>The catalog Item ID.</returns>
+        protected string ObtainCatalogItemId(string promptMessage = default(string))
+        {
+            return this.ObtainValue(
+                this.Context.Configuration.Scenario.DefaultCatalogItemId,
+                "Catalog Item Id",
+                string.IsNullOrWhiteSpace(promptMessage) ? "Enter the catalog item ID" : promptMessage,
+                "The catalog item ID can't be empty");
+        }
+
+        /// <summary>
+        /// Obtains a scope for probisioning status to work with from the configuration if set there or prompts the user to enter it.
+        /// </summary>
+        /// <param name="promptMessage">An optional custom prompt message.</param>
+        /// <returns>The scope.</returns>
+        protected string ObtainScope(string promptMessage = default(string))
+        {
+            return this.ObtainValue(
+                this.Context.Configuration.Scenario.DefaultScope,
+                "Scope",
+                string.IsNullOrWhiteSpace(promptMessage) ? "Enter the Scope" : promptMessage,
+                "The Scope can't be empty");
+        }
+
+        /// <summary>
         /// Obtain an order ID to work with the configuration if set there or prompts the user to enter it.
         /// </summary>
         /// <param name="promptMessage">An optional custom prompt message</param>
@@ -282,6 +352,62 @@ namespace Microsoft.Store.PartnerCenter.Samples
                 "Order Id",
                 string.IsNullOrWhiteSpace(promptMessage) ? "Enter the order ID" : promptMessage,
                 "The Order ID can't be empty");
+        }
+
+        /// <summary>
+        /// Obtain an cart ID to work with the configuration if set there or prompts the user to enter it.
+        /// </summary>
+        /// <param name="promptMessage">An optional custom prompt message</param>
+        /// <returns>The cart ID</returns>
+        protected string ObtainCartID(string promptMessage = default(string))
+        {
+            return this.ObtainValue(
+                this.Context.Configuration.Scenario.DefaultCartId,
+                "Cart Id",
+                string.IsNullOrWhiteSpace(promptMessage) ? "Enter the cart ID" : promptMessage,
+                "The cart ID can't be empty");
+        }
+
+        /// <summary>
+        /// Obtain a quantity to update order  with the configuration if set there or prompts the user to enter it.
+        /// </summary>
+        /// <param name="promptMessage">An optional custom prompt message</param>
+        /// <returns>The quantity to update</returns>
+        protected string ObtainQuantity(string promptMessage = default(string))
+        {
+            return this.ObtainValue(
+                this.Context.Configuration.Scenario.DefaultQuantity,
+                "Quantity",
+                string.IsNullOrWhiteSpace(promptMessage) ? "Enter the Quantity" : promptMessage,
+                "The Quantity can't be empty");
+        }
+
+        /// <summary>
+        /// Obtain billing cycle type to create the order with the configuration if set there or prompts the user to enter it.
+        /// </summary>
+        /// <param name="promptMessage">An optional custom prompt message</param>
+        /// <returns>The quantity to update</returns>
+        protected string ObtainBillingCycle(string promptMessage = default(string))
+        {
+            return this.ObtainValue(
+                this.Context.Configuration.Scenario.DefaultBillingCycle,
+                "Billing Cycle",
+                string.IsNullOrWhiteSpace(promptMessage) ? "Enter the Billing Cycle" : promptMessage,
+                "The Billing Cycle can't be empty");
+        }
+
+        /// <summary>
+        /// Obtain an Azure Subscription Id for provision status with the configuration if set there or prompts the user to enter it.
+        /// </summary>
+        /// <param name="promptMessage">An optional custom prompt message</param>
+        /// <returns>Azure subscription Id</returns>
+        protected string ObtainAzureSubscriptionId(string promptMessage = default(string))
+        {
+            return this.ObtainValue(
+                this.Context.Configuration.Scenario.DefaultAzureSubscriptionId,
+                "Quantity",
+                string.IsNullOrWhiteSpace(promptMessage) ? "Enter the Azure Subscription Id" : promptMessage,
+                "The Azure Subscription Id can't be empty");
         }
 
         /// <summary>
@@ -374,6 +500,20 @@ namespace Microsoft.Store.PartnerCenter.Samples
             }
 
             return value.Trim();
+        }
+
+        /// <summary>
+        /// Obtain billing cycle type to work with the configuration if set there or prompts the user to enter it.
+        /// </summary>
+        /// <param name="promptMessage">An optional custom prompt message</param>
+        /// <returns>Billing cycle type</returns>
+        protected string ObtainBillingCycleType(string promptMessage = default(string))
+        {
+            return this.ObtainValue(
+                this.Context.Configuration.Scenario.DefaultBillingCycle,
+                "Billing cycle type",
+                string.IsNullOrWhiteSpace(promptMessage) ? "Enter the billing cycle type" : promptMessage,
+                "The billing cycle type can't be empty");
         }
     }
 }

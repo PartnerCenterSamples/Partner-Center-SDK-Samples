@@ -49,14 +49,14 @@
       <HintPath>..\..\packages\Microsoft.IdentityModel.Clients.ActiveDirectory.2.16.204221202\lib\net45\Microsoft.IdentityModel.Clients.ActiveDirectory.WindowsForms.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="Microsoft.Store.PartnerCenter, Version=1.7.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
-      <HintPath>..\..\packages\Microsoft.Store.PartnerCenter.1.7.1\lib\Net45\Microsoft.Store.PartnerCenter.dll</HintPath>
+    <Reference Include="Microsoft.Store.PartnerCenter, Version=1.8.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Microsoft.Store.PartnerCenter.1.8.0\lib\Net45\Microsoft.Store.PartnerCenter.dll</HintPath>
     </Reference>
-    <Reference Include="Microsoft.Store.PartnerCenter.Extensions, Version=1.7.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
-      <HintPath>..\..\packages\Microsoft.Store.PartnerCenter.1.7.1\lib\Net45\Microsoft.Store.PartnerCenter.Extensions.dll</HintPath>
+    <Reference Include="Microsoft.Store.PartnerCenter.Extensions, Version=1.8.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Microsoft.Store.PartnerCenter.1.8.0\lib\Net45\Microsoft.Store.PartnerCenter.Extensions.dll</HintPath>
     </Reference>
-    <Reference Include="Microsoft.Store.PartnerCenter.Models, Version=1.7.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
-      <HintPath>..\..\packages\Microsoft.Store.PartnerCenter.1.7.1\lib\Net45\Microsoft.Store.PartnerCenter.Models.dll</HintPath>
+    <Reference Include="Microsoft.Store.PartnerCenter.Models, Version=1.8.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Microsoft.Store.PartnerCenter.1.8.0\lib\Net45\Microsoft.Store.PartnerCenter.Models.dll</HintPath>
     </Reference>
     <Reference Include="Newtonsoft.Json, Version=6.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
       <HintPath>..\..\packages\Newtonsoft.Json.6.0.8\lib\net45\Newtonsoft.Json.dll</HintPath>
@@ -79,6 +79,9 @@
     <Compile Include="Auditing\SearchAuditRecords.cs" />
     <Compile Include="Auditing\SearchAuditRecordsByCustomerId.cs" />
     <Compile Include="Auditing\SearchAuditRecordsByResourceType.cs" />
+    <Compile Include="Carts\CheckoutCart.cs" />
+    <Compile Include="Carts\CreateCart.cs" />
+    <Compile Include="Carts\UpdateCart.cs" />
     <Compile Include="Configuration\ApplicationAuthenticationSection.cs" />
     <Compile Include="Configuration\ScenarioSettingsSection.cs" />
     <Compile Include="Configuration\UserAuthenticationSection.cs" />
@@ -90,6 +93,16 @@
     <Compile Include="CustomerDirectoryRoles\GetCustomerDirectoryRoles.cs" />
     <Compile Include="CustomerDirectoryRoles\GetCustomerDirectoryRoleUserMembers.cs" />
     <Compile Include="CustomerDirectoryRoles\RemoveCustomerUserMemberFromDirectoryRole.cs" />
+    <Compile Include="CustomerProducts\GetCustomerAvailability.cs" />
+    <Compile Include="CustomerProducts\GetCustomerAvailabilities.cs" />
+    <Compile Include="CustomerProducts\GetCustomerAvailabilitiesByTargetSegment.cs" />
+    <Compile Include="CustomerProducts\GetCustomerProduct.cs" />
+    <Compile Include="CustomerProducts\GetCustomerProducts.cs" />
+    <Compile Include="CustomerProducts\GetCustomerProductsByTargetSegment.cs" />
+    <Compile Include="CustomerProducts\GetCustomerSku.cs" />
+    <Compile Include="CustomerProducts\GetCustomerSkuDownloadOptions.cs" />
+    <Compile Include="CustomerProducts\GetCustomerSkus.cs" />
+    <Compile Include="CustomerProducts\GetCustomerSkusByTargetSegment.cs" />
     <Compile Include="CustomerServiceCosts\GetCustomerServiceCostsLineItems.cs" />
     <Compile Include="CustomerServiceCosts\GetCustomerServiceCostsSummary.cs" />
     <Compile Include="CustomerSubscribedSkus\GetCustomerSubscribedSkus.cs" />
@@ -136,6 +149,7 @@
     <Compile Include="DevicesDeployment\CreateDevices.cs" />
     <Compile Include="DevicesDeployment\CreateDeviceBatch.cs" />
     <Compile Include="DevicesDeployment\CreateConfigurationPolicy.cs" />
+    <Compile Include="Entitlements\GetEntitlements.cs" />
     <Compile Include="Helpers\ConsoleHelper.cs" />
     <Compile Include="IndirectModel\CreateCustomerForIndirectReseller.cs" />
     <Compile Include="IndirectModel\GetCustomersOfIndirectReseller.cs" />
@@ -149,6 +163,8 @@
     <Compile Include="Invoice\GetAccountBalance.cs" />
     <Compile Include="Invoice\GetInvoice.cs" />
     <Compile Include="Invoice\GetInvoiceLineItems.cs" />
+    <Compile Include="Invoice\GetInvoiceStatement.cs" />
+    <Compile Include="Invoice\GetInvoiceSummaries.cs" />
     <Compile Include="Invoice\GetPagedInvoices.cs" />
     <Compile Include="Offers\GetCustomerOfferCategories.cs" />
     <Compile Include="Offers\GetCustomerOffers.cs" />
@@ -156,9 +172,24 @@
     <Compile Include="Offers\GetOfferCategories.cs" />
     <Compile Include="Offers\GetOffers.cs" />
     <Compile Include="Offers\GetPagedOffers.cs" />
+    <Compile Include="Orders\CreateAzureReservationOrder.cs" />
     <Compile Include="Orders\GetOrderDetails.cs" />
+    <Compile Include="Orders\GetOrderProvisioningStatus.cs" />
     <Compile Include="Orders\GetOrders.cs" />
     <Compile Include="Orders\CreateOrder.cs" />
+    <Compile Include="Orders\GetOrdersByBillingCycleType.cs" />
+    <Compile Include="Orders\UpdateOrder.cs" />
+    <Compile Include="Products\GetAvailabilitiesByTargetSegment.cs" />
+    <Compile Include="Products\GetAvailabilities.cs" />
+    <Compile Include="Products\GetAvailability.cs" />
+    <Compile Include="Products\CheckInventory.cs" />
+    <Compile Include="Products\GetSkuDownloadOptions.cs" />
+    <Compile Include="Products\GetSku.cs" />
+    <Compile Include="Products\GetProduct.cs" />
+    <Compile Include="Products\GetSkusByTargetSegment.cs" />
+    <Compile Include="Products\GetSkus.cs" />
+    <Compile Include="Products\GetProductsByTargetSegment.cs" />
+    <Compile Include="Products\GetProducts.cs" />
     <Compile Include="Profile\GetBillingProfile.cs" />
     <Compile Include="Profile\GetlegalBusinessProfile.cs" />
     <Compile Include="Profile\GetOrganizationProfile.cs" />

@@ -76,6 +76,9 @@ namespace Microsoft.Store.PartnerCenter.Samples.Helpers
 
                     while (!this.progressCancellationTokenSource.Token.IsCancellationRequested)
                     {
+                        var initialCursorPositionX = Console.CursorLeft;
+                        var initialCursorPositionY = Console.CursorTop;
+
                         for (dotCounter = 0; dotCounter < 5; dotCounter++)
                         {
                             this.WriteColored(".", ConsoleColor.DarkCyan, false);
@@ -86,15 +89,15 @@ namespace Microsoft.Store.PartnerCenter.Samples.Helpers
                                 return;
                             }
                         }
-
-                        Console.SetCursorPosition(Console.CursorLeft - dotCounter, Console.CursorTop);
-
+                        
+                        // Erase dots.
+                        Console.SetCursorPosition(initialCursorPositionX, initialCursorPositionY);
                         for (int i = 0; i < dotCounter; ++i)
                         {
                             Console.Write(" ");
                         }
 
-                        Console.SetCursorPosition(Console.CursorLeft - dotCounter, Console.CursorTop);
+                        Console.SetCursorPosition(initialCursorPositionX, initialCursorPositionY);
                     }
                 });
 

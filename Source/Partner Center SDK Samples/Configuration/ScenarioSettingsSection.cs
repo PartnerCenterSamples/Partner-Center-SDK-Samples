@@ -229,6 +229,39 @@ namespace Microsoft.Store.PartnerCenter.Samples.Configuration
         }
 
         /// <summary>
+        /// Gets the configured product ID.
+        /// </summary>
+        public string DefaultProductId
+        {
+            get
+            {
+                return this.ConfigurationSection["DefaultProductId"];
+            }
+        }
+
+        /// <summary>
+        /// Gets the configured sku ID.
+        /// </summary>
+        public string DefaultSkuId
+        {
+            get
+            {
+                return this.ConfigurationSection["DefaultSkuId"];
+            }
+        }
+
+        /// <summary>
+        /// Gets the configured availability ID.
+        /// </summary>
+        public string DefaultAvailabilityId
+        {
+            get
+            {
+                return this.ConfigurationSection["DefaultAvailabilityId"];
+            }
+        }
+
+        /// <summary>
         /// Gets the configured order ID.
         /// </summary>
         public string DefaultOrderId
@@ -280,6 +313,72 @@ namespace Microsoft.Store.PartnerCenter.Samples.Configuration
             get
             {
                 return this.ConfigurationSection["DefaultSupportTopicId"];
+            }
+        }
+
+        /// <summary>
+        /// Gets the cart Id for an existing cart
+        /// </summary>
+        public string DefaultCartId
+        {
+            get
+            {
+                return this.ConfigurationSection["DefaultCartId"];
+            }
+        }
+
+        /// <summary>
+        /// Gets the Quantity for updating an existing cart
+        /// </summary>
+        public string DefaultQuantity
+        {
+            get
+            {
+                return this.ConfigurationSection["DefaultQuantity"];
+            }
+        }
+
+        /// <summary>
+        /// Gets the Catalog Item Id for an item from catalog
+        /// </summary>
+        public string DefaultCatalogItemId
+        {
+            get
+            {
+                return this.ConfigurationSection["DefaultCatalogItemId"];
+            }
+        }
+
+        /// <summary>
+        /// Gets the scope for provisioning status
+        /// </summary>
+        public string DefaultScope
+        {
+            get
+            {
+                return this.ConfigurationSection["DefaultScope"];
+            }
+        }
+
+        /// <summary>
+        /// Gets the Azure Subscription Id for provision status
+        /// </summary>
+        public string DefaultAzureSubscriptionId
+        {
+            get
+            {
+                return this.ConfigurationSection["DefaultAzureSubscriptionId"];
+            }
+        }
+
+        /// <summary>
+        /// Gets the BillingCycle for creating a cart
+        /// </summary>
+        public string DefaultBillingCycle
+        {
+            get
+            {
+                return this.ConfigurationSection["DefaultBillingCycle"];
             }
         }
     }

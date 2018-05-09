@@ -9,10 +9,13 @@ namespace Microsoft.Store.PartnerCenter.Samples
     using Analytics;
     using Context;
     using CustomerDirectoryRoles;
+    using CustomerProducts;
     using Customers;
     using CustomerServiceCosts;
     using CustomerSubscribedSkus;
     using CustomerUser;
+    using DevicesDeployment;
+    using Entitlements;
     using IndirectModel;
     using Invoice;
     using Models.Auditing;
@@ -20,6 +23,8 @@ namespace Microsoft.Store.PartnerCenter.Samples
     using Models.Query;
     using Offers;
     using Orders;
+    using Carts;
+    using Products;
     using Profile;
     using RateCards;
     using RatedUsage;
@@ -28,7 +33,6 @@ namespace Microsoft.Store.PartnerCenter.Samples
     using Subscriptions;
     using Utilization;
     using Validations;
-    using DevicesDeployment;
 
     /// <summary>
     /// The main program class for the partner center .NET SDK samples.
@@ -47,6 +51,8 @@ namespace Microsoft.Store.PartnerCenter.Samples
             {
                 Program.GetCustomerScenarios(context),
                 Program.GetOfferScenarios(context),
+                Program.GetProductScenarios(context),
+                Program.GetCustomerProductsScenarios(context),
                 Program.GetOrderScenarios(context),
                 Program.GetSubscriptionScenarios(context),
                 Program.GetRatedUsageScenarios(context),
@@ -65,7 +71,9 @@ namespace Microsoft.Store.PartnerCenter.Samples
                 Program.GetPartnerAnalyticsScenarios(context),
                 Program.GetCustomerServiceCostsScenarios(context),
                 Program.GetAddressValidationsScenarios(context),
-                Program.GetDevicesScenarios(context)
+                Program.GetDevicesScenarios(context),
+                Program.GetCartScenarios(context),
+                Program.GetEntitlementScenarios(context)
             };
 
             // run the main scenario
@@ -128,6 +136,21 @@ namespace Microsoft.Store.PartnerCenter.Samples
             };
 
             return new AggregatePartnerScenario("Devices", devicesScenarios, context);
+        }
+
+        /// <summary>
+        /// Gets the Entitlement scenarios.
+        /// </summary>
+        /// <param name="context">A scenario context.</param>
+        /// <returns>The Entitlement scenarios.</returns>
+        private static IPartnerScenario GetEntitlementScenarios(ScenarioContext context)
+        {
+            var entitlementScenarios = new IPartnerScenario[]
+            {
+                new GetEntitlements(context),
+            };
+
+            return new AggregatePartnerScenario("Entitlements", entitlementScenarios, context);
         }
 
         /// <summary>
@@ -221,6 +244,55 @@ namespace Microsoft.Store.PartnerCenter.Samples
         }
 
         /// <summary>
+        /// Gets the product scenarios.
+        /// </summary>
+        /// <param name="context">A scenario context.</param>
+        /// <returns>The product scenarios.</returns>
+        private static IPartnerScenario GetProductScenarios(IScenarioContext context)
+        {
+            var productScenarios = new IPartnerScenario[]
+            {
+                new GetProducts(context),
+                new GetProductsByTargetSegment(context),
+                new GetProduct(context),
+                new GetSkus(context),
+                new GetSkusByTargetSegment(context),
+                new GetSku(context),
+                new GetSkuDownloadOptions(context),
+                new GetAvailabilities(context),
+                new GetAvailabilitiesByTargetSegment(context),
+                new GetAvailability(context),
+                new CheckInventory(context)
+            };
+
+            return new AggregatePartnerScenario("Product samples", productScenarios, context);
+        }
+
+        /// <summary>
+        /// Gets the customer products scenarios.
+        /// </summary>
+        /// <param name="context">A scenario context.</param>
+        /// <returns>The products for customer scenarios.</returns>
+        private static IPartnerScenario GetCustomerProductsScenarios(IScenarioContext context)
+        {
+            var customerProductsScenarios = new IPartnerScenario[]
+            {
+                new GetCustomerProducts(context),
+                new GetCustomerProductsByTargetSegment(context),
+                new GetCustomerProduct(context),
+                new GetCustomerSkus(context),
+                new GetCustomerSkusByTargetSegment(context),
+                new GetCustomerSku(context),
+                new GetCustomerSkuDownloadOptions(context),
+                new GetCustomerAvailabilities(context),
+                new GetCustomerAvailabilitiesByTargetSegment(context),
+                new GetCustomerAvailability(context)
+            };
+
+            return new AggregatePartnerScenario("Products for customers samples", customerProductsScenarios, context);
+        }
+
+        /// <summary>
         /// Gets the order scenarios.
         /// </summary>
         /// <param name="context">A scenario context.</param>
@@ -231,7 +303,11 @@ namespace Microsoft.Store.PartnerCenter.Samples
             {
                 new CreateOrder(context),
                 new GetOrderDetails(context),
-                new GetOrders(context)
+                new GetOrders(context),
+                new CreateAzureReservationOrder(context),
+                new GetOrdersByBillingCycleType(context),
+                new GetOrderProvisioningStatus(context),
+                new UpdateOrder(context)
             };
 
             return new AggregatePartnerScenario("Order samples", orderScenarios, context);
@@ -312,7 +388,9 @@ namespace Microsoft.Store.PartnerCenter.Samples
                 new GetAccountBalance(context),
                 new GetInvoice(context),
                 new GetInvoiceLineItems(context, context.Configuration.Scenario.InvoicePageSize),
-                new GetPagedInvoices(context, context.Configuration.Scenario.InvoicePageSize)
+                new GetPagedInvoices(context, context.Configuration.Scenario.InvoicePageSize),
+                new GetInvoiceSummaries(context),
+                new GetInvoiceStatement(context)
             };
 
             return new AggregatePartnerScenario("Invoice samples", invoiceScenarios, context);
@@ -467,6 +545,23 @@ namespace Microsoft.Store.PartnerCenter.Samples
             };
 
             return new AggregatePartnerScenario("Address validation samples", addressValidationScenarios, context);
+        }
+
+        /// <summary>
+        /// Gets the cart scenarios of create, update and checkout
+        /// </summary>
+        /// <param name="context">A scenario context.</param>
+        /// <returns>The cart scenarios.</returns>
+        private static IPartnerScenario GetCartScenarios(IScenarioContext context)
+        {
+            var cartScenarios = new IPartnerScenario[]
+            {
+                new CreateCart(context),
+                new UpdateCart(context),
+                new CheckoutCart(context)
+            };
+
+            return new AggregatePartnerScenario("Cart Scenarios", cartScenarios, context);
         }
     }
 }
