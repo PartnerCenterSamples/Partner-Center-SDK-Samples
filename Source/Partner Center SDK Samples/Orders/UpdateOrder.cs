@@ -7,13 +7,14 @@
 namespace Microsoft.Store.PartnerCenter.Samples.Orders
 {
     using System.Linq;
+
     /// <summary>
     /// A scenario that updates a customer order.
     /// </summary>
     public class UpdateOrder : BasePartnerScenario
     {
         /// <summary>
-        /// Initializes a new instance of the <see cref="GetOrderProvisioningStatus"/> class.
+        /// Initializes a new instance of the <see cref="UpdateOrder"/> class.
         /// </summary>
         /// <param name="context">The scenario context.</param>
         public UpdateOrder(IScenarioContext context) : base("Update customer order", context)

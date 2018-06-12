@@ -8,7 +8,6 @@ namespace Microsoft.Store.PartnerCenter.Samples.CustomerUser
 {
     using System;
     using System.Globalization;
-    using Exceptions;
     using Models.Query;
 
     /// <summary>
@@ -19,7 +18,7 @@ namespace Microsoft.Store.PartnerCenter.Samples.CustomerUser
         /// <summary>
         /// The customer user page size.
         /// </summary>
-        private int _customerUserPageSize;
+        private int customerUserPageSize;
 
         /// <summary>
         /// Initializes a new instance of the <see cref="GetPagedCustomerUsers"/> class.
@@ -28,7 +27,7 @@ namespace Microsoft.Store.PartnerCenter.Samples.CustomerUser
         /// <param name="customeruserPageSize">The number of customer users to return per page.</param>
         public GetPagedCustomerUsers(IScenarioContext context, int customeruserPageSize = 0) : base("Get Paged customer users", context)
         {
-            this._customerUserPageSize = customeruserPageSize;
+            this.customerUserPageSize = customeruserPageSize;
         }
 
         /// <summary>
@@ -43,12 +42,12 @@ namespace Microsoft.Store.PartnerCenter.Samples.CustomerUser
 
             // get customer user page size
             string customerUserPageSize = this.ObtainCustomerUserPageSize();
-            this._customerUserPageSize = int.Parse(customerUserPageSize);
+            this.customerUserPageSize = int.Parse(customerUserPageSize);
 
             this.Context.ConsoleHelper.StartProgress("Querying first page of customer users");
 
             // query the customers, get the first page if a page size was set, otherwise get all customers
-            var customerUsersPage = (this._customerUserPageSize <= 0) ? partnerOperations.Customers.ById(selectedCustomerId).Users.Get() : partnerOperations.Customers.ById(selectedCustomerId).Users.Query(QueryFactory.Instance.BuildIndexedQuery(this._customerUserPageSize));
+            var customerUsersPage = (this.customerUserPageSize <= 0) ? partnerOperations.Customers.ById(selectedCustomerId).Users.Get() : partnerOperations.Customers.ById(selectedCustomerId).Users.Query(QueryFactory.Instance.BuildIndexedQuery(this.customerUserPageSize));
             this.Context.ConsoleHelper.StopProgress();
 
             this.Context.ConsoleHelper.StartProgress("Creating customer user Enumerator");

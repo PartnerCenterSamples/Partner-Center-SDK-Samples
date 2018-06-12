@@ -7,7 +7,6 @@
 namespace Microsoft.Store.PartnerCenter.Samples.CustomerUser
 {
     using System;
-    using Exceptions;
     using Models.Users;
 
     /// <summary>

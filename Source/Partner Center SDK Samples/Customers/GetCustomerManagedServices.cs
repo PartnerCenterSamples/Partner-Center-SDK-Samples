@@ -6,8 +6,6 @@
 
 namespace Microsoft.Store.PartnerCenter.Samples.Customers
 {
-    using System;
-
     /// <summary>
     /// Gets a customer list of managed services.
     /// </summary>

@@ -4,15 +4,17 @@
 // </copyright>
 // -----------------------------------------------------------------------
 
-
-using Microsoft.Store.PartnerCenter.Models.Licenses;
-
 namespace Microsoft.Store.PartnerCenter.Samples.CustomerUser
 {
     using System;
     using System.Collections.Generic;
     using System.Linq;
-    class CustomerUserAssignGroup2Licenses : BasePartnerScenario
+    using Models.Licenses;
+
+    /// <summary>
+    /// Assign customer user a Group2 license
+    /// </summary>
+    public class CustomerUserAssignGroup2Licenses : BasePartnerScenario
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="CustomerUserAssignGroup2Licenses"/> class.
@@ -22,6 +24,9 @@ namespace Microsoft.Store.PartnerCenter.Samples.CustomerUser
         {
         }
 
+        /// <summary>
+        /// Executes the scenario.
+        /// </summary>
         protected override void RunScenario()
         {
             // A sample License Group2 Id - Minecraft product id.

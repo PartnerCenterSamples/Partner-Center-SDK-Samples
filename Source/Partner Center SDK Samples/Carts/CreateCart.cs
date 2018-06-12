@@ -6,11 +6,9 @@
 
 namespace Microsoft.Store.PartnerCenter.Samples.Carts
 {
-    using System;
-    using System.Linq;
     using System.Collections.Generic;
+    using System.Linq;
     using Models.Carts;
-    using Models.Products;
 
     /// <summary>
     /// A scenario that creates a new cart for a customer.
@@ -25,7 +23,6 @@ namespace Microsoft.Store.PartnerCenter.Samples.Carts
         {
         }
 
-
         /// <summary>
         /// Executes the scenario.
         /// </summary>
@@ -37,16 +34,18 @@ namespace Microsoft.Store.PartnerCenter.Samples.Carts
             string catalogItemId = this.ObtainCatalogItemId("Enter the catalog Item Id");
             string productId = catalogItemId.Split(':')[0];
             string skuId = catalogItemId.Split(':')[1];
-            string scope = "";
-            string subscriptionId = "";
-            string duration = "";
+            string scope = string.Empty;
+            string subscriptionId = string.Empty;
+            string duration = string.Empty;
             var sku = partnerOperations.Products.ByCountry("US").ById(productId).Skus.ById(skuId).Get();
+
             if (sku.ProvisioningVariables != null)
             {
                 scope = this.ObtainScope("Enter the Scope for the Provisioning status");
                 subscriptionId = this.ObtainAzureSubscriptionId("Enter the Subscription Id");
                 duration = (string)sku.DynamicAttributes["duration"];
             }
+
             var cart = new Cart()
             {
                 LineItems = new List<CartLineItem>()
@@ -57,15 +56,16 @@ namespace Microsoft.Store.PartnerCenter.Samples.Carts
                         FriendlyName = "Myofferpurchase",
                         Quantity = 1,
                         BillingCycle = sku.SupportedBillingCycles.ToArray().First(),
-                        ProvisioningContext = (sku.ProvisioningVariables == null)?null:new Dictionary<string, string>
+                        ProvisioningContext = (sku.ProvisioningVariables == null) ? null : new Dictionary<string, string>
                         {
-                            { "subscriptionId",subscriptionId},
-                            { "scope", scope},
+                            { "subscriptionId", subscriptionId },
+                            { "scope", scope },
                             { "duration", duration }
                         }
                     }
                 }
             };
+
             this.Context.ConsoleHelper.WriteObject(cart, "Cart to be created");
             this.Context.ConsoleHelper.StartProgress("Creating cart");
 

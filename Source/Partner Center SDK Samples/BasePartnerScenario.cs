@@ -327,7 +327,7 @@ namespace Microsoft.Store.PartnerCenter.Samples
         }
 
         /// <summary>
-        /// Obtains a scope for probisioning status to work with from the configuration if set there or prompts the user to enter it.
+        /// Obtains a scope for provisioning status to work with from the configuration if set there or prompts the user to enter it.
         /// </summary>
         /// <param name="promptMessage">An optional custom prompt message.</param>
         /// <returns>The scope.</returns>
@@ -446,7 +446,7 @@ namespace Microsoft.Store.PartnerCenter.Samples
         /// </summary>
         /// <param name="customerId">The customer identifier of the customer that has the subscribed SKUs.</param>
         /// <param name="promptMessage">An optional custom prompt message.</param>
-        /// <returns></returns>
+        /// <returns>The product SKU identifier.</returns>
         protected string ObtainProductSkuId(string customerId, string promptMessage = default(string))
         {
             var partnerOperations = this.Context.UserPartnerOperations;
@@ -478,6 +478,20 @@ namespace Microsoft.Store.PartnerCenter.Samples
         protected abstract void RunScenario();
 
         /// <summary>
+        /// Obtain billing cycle type to work with the configuration if set there or prompts the user to enter it.
+        /// </summary>
+        /// <param name="promptMessage">An optional custom prompt message</param>
+        /// <returns>Billing cycle type</returns>
+        protected string ObtainBillingCycleType(string promptMessage = default(string))
+        {
+            return this.ObtainValue(
+                this.Context.Configuration.Scenario.DefaultBillingCycle,
+                "Billing cycle type",
+                string.IsNullOrWhiteSpace(promptMessage) ? "Enter the billing cycle type" : promptMessage,
+                "The billing cycle type can't be empty");
+        }
+
+        /// <summary>
         /// Obtains a value to work with from the configuration if set there or prompts the user to enter it.
         /// </summary>
         /// <param name="configuredValue">The value read from the configuration.</param>
@@ -500,20 +514,6 @@ namespace Microsoft.Store.PartnerCenter.Samples
             }
 
             return value.Trim();
-        }
-
-        /// <summary>
-        /// Obtain billing cycle type to work with the configuration if set there or prompts the user to enter it.
-        /// </summary>
-        /// <param name="promptMessage">An optional custom prompt message</param>
-        /// <returns>Billing cycle type</returns>
-        protected string ObtainBillingCycleType(string promptMessage = default(string))
-        {
-            return this.ObtainValue(
-                this.Context.Configuration.Scenario.DefaultBillingCycle,
-                "Billing cycle type",
-                string.IsNullOrWhiteSpace(promptMessage) ? "Enter the billing cycle type" : promptMessage,
-                "The billing cycle type can't be empty");
         }
     }
 }

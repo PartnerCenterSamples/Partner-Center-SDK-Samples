@@ -6,8 +6,8 @@
 
 namespace Microsoft.Store.PartnerCenter.Samples.DevicesDeployment
 {
-    using Microsoft.Store.PartnerCenter.Models.DevicesDeployment;
     using System.Collections.Generic;
+    using Microsoft.Store.PartnerCenter.Models.DevicesDeployment;
 
     /// <summary>
     /// Updates configuration policy.
@@ -33,7 +33,7 @@ namespace Microsoft.Store.PartnerCenter.Samples.DevicesDeployment
 
             ConfigurationPolicy configPolicyToBeUpdated = new ConfigurationPolicy()
             {
-                Name= "Test Config Policy",
+                Name = "Test Config Policy",
                 Id = selectedConfigurationPolicyId,
                 PolicySettings = new List<PolicySettingsType>() { PolicySettingsType.OobeUserNotLocalAdmin, PolicySettingsType.RemoveOemPreinstalls }
             };

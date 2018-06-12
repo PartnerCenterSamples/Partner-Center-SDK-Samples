@@ -6,10 +6,9 @@
 
 namespace Microsoft.Store.PartnerCenter.Samples.Carts
 {
-    using System;
     using System.Linq;
     using Store.PartnerCenter.Models.Carts;
-    
+
     /// <summary>
     /// A scenario that updates a new cart for a customer.
     /// </summary>
@@ -32,7 +31,7 @@ namespace Microsoft.Store.PartnerCenter.Samples.Carts
 
             string customerId = this.ObtainCustomerId("Enter the ID of the customer making the purchase");
             string cartId = this.ObtainCartID("Enter the ID of cart for which changes are to be made");
-            int quantityChange = Int32.Parse(this.ObtainQuantity("Enter the amount the quantity has to be changed"));
+            int quantityChange = int.Parse(this.ObtainQuantity("Enter the amount the quantity has to be changed"));
 
             Cart existingCart = partnerOperations.Customers.ById(customerId).Carts.ById(cartId).Get();
 

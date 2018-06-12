@@ -37,7 +37,8 @@ namespace Microsoft.Store.PartnerCenter.Samples.Customers
             {
                 CompanyProfile = new CustomerCompanyProfile()
                 {
-                    Domain = string.Format(CultureInfo.InvariantCulture, 
+                    Domain = string.Format(
+                        CultureInfo.InvariantCulture, 
                         "WingtipToys{0}.{1}", 
                         new Random().Next(), 
                         this.Context.Configuration.Scenario.CustomerDomainSuffix)

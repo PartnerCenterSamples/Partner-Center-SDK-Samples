@@ -3,20 +3,28 @@
 //      Copyright (c) Microsoft Corporation.  All rights reserved.
 // </copyright>
 // --------------------------------------------------------------------------------------
+
 namespace Microsoft.Store.PartnerCenter.Samples.CustomerUser
 {
-    using Models.Licenses;
     using System.Collections.Generic;
-    class CustomerUserAssignedGroup2Licenses : BasePartnerScenario
+    using Models.Licenses;
+
+    /// <summary>
+    /// Get customer user assigned group2 licenses
+    /// </summary>
+    public class CustomerUserAssignedGroup2Licenses : BasePartnerScenario
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="CustomerUserAssignedGroup2Licenses"/> class
         /// </summary>
-        /// <param name="context"></param>
+        /// <param name="context">The scenario context</param>
         public CustomerUserAssignedGroup2Licenses(IScenarioContext context) : base("Get customer user assinged group2 licenses", context)
         {
         }
 
+        /// <summary>
+        /// Executes the scenario.
+        /// </summary>
         protected override void RunScenario()
         {
             // Get the customer Id of the entered customer user

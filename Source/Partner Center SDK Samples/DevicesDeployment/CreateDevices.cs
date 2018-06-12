@@ -6,8 +6,8 @@
 
 namespace Microsoft.Store.PartnerCenter.Samples.DevicesDeployment
 {
-    using Microsoft.Store.PartnerCenter.Models.DevicesDeployment;
     using System.Collections.Generic;
+    using Microsoft.Store.PartnerCenter.Models.DevicesDeployment;
 
     /// <summary>
     /// Creates new devices under an existing device batch.
@@ -50,7 +50,6 @@ namespace Microsoft.Store.PartnerCenter.Samples.DevicesDeployment
                 }
             };
            
-
             this.Context.ConsoleHelper.WriteObject(devicesToBeUploaded, "New Devices");
             this.Context.ConsoleHelper.StartProgress("Creating Devices");
 

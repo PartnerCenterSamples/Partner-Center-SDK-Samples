@@ -6,11 +6,8 @@
 
 namespace Microsoft.Store.PartnerCenter.Samples.CustomerUser
 {
-    using System;
-    using System.Collections.Generic;
     using Models.Users;
-    using PartnerCenter.Models.Customers;
-    
+
     /// <summary>
     /// Showcases customer user restore API.
     /// </summary>

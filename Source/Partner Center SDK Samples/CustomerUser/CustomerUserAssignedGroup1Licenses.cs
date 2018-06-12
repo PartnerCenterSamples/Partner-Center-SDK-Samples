@@ -6,10 +6,13 @@
 
 namespace Microsoft.Store.PartnerCenter.Samples.CustomerUser
 {
-
-    using Models.Licenses;
     using System.Collections.Generic;
-    class CustomerUserAssignedGroup1Licenses : BasePartnerScenario
+    using Models.Licenses;
+
+    /// <summary>
+    /// Get customer user assigned group1 licenses
+    /// </summary>
+    public class CustomerUserAssignedGroup1Licenses : BasePartnerScenario
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="CustomerUserAssignedGroup1Licenses"/> class
@@ -18,6 +21,10 @@ namespace Microsoft.Store.PartnerCenter.Samples.CustomerUser
         public CustomerUserAssignedGroup1Licenses(IScenarioContext context) : base("Get customer user assigned group1 licenses", context)
         {
         }
+
+        /// <summary>
+        /// Executes the scenario.
+        /// </summary>
         protected override void RunScenario()
         {
             // Get the customer Id of the entered customer user

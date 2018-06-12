@@ -6,8 +6,6 @@
 
 namespace Microsoft.Store.PartnerCenter.Samples.Customers
 {
-    using System;
-
     /// <summary>
     /// A scenario that updates a customer's billing profile.
     /// </summary>

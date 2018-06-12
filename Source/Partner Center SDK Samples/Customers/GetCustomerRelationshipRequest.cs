@@ -6,8 +6,6 @@
 
 namespace Microsoft.Store.PartnerCenter.Samples.Customers
 {
-    using System;
-
     /// <summary>
     /// Gets the request which establishes a relationship between the partner and their customers.
     /// </summary>

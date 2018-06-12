@@ -35,7 +35,7 @@ namespace Microsoft.Store.PartnerCenter.Samples.CustomerProducts
             var sku = partnerOperations.Customers.ById(customerId).Products.ById(productId).Skus.ById(skuId).Get();
             this.Context.ConsoleHelper.StopProgress();
 
-            this.Context.ConsoleHelper.WriteObject(sku, string.Format(CultureInfo.InvariantCulture, "Sku details for customer", skuId, productId));
+            this.Context.ConsoleHelper.WriteObject(sku, "Sku details for customer");
         }
     }
 }

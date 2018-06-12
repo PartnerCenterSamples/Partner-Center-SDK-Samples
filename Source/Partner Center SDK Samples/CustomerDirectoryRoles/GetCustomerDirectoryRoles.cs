@@ -6,9 +6,6 @@
 
 namespace Microsoft.Store.PartnerCenter.Samples.CustomerDirectoryRoles
 {
-    using System;
-    using Exceptions;
-
     /// <summary>
     /// Gets customer directory roles details.
     /// </summary>

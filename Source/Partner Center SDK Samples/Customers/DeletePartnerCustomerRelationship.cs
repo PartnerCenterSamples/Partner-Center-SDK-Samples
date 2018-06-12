@@ -1,25 +1,20 @@
-﻿
-// -----------------------------------------------------------------------
-// <copyright file="DeleteCustomerFromTipAccount.cs" company="Microsoft">
+﻿// -----------------------------------------------------------------------
+// <copyright file="DeletePartnerCustomerRelationship.cs" company="Microsoft">
 //      Copyright (c) Microsoft Corporation.  All rights reserved.
 // </copyright>
 // -----------------------------------------------------------------------
 
 namespace Microsoft.Store.PartnerCenter.Samples.Customers
 {
-    using Microsoft.Store.PartnerCenter.Models;
-    using Microsoft.Store.PartnerCenter.Models.Customers;
-    using Microsoft.Store.PartnerCenter.Models.Subscriptions;
-    using System;
     using System.Collections.Generic;
-    using System.Linq;
-    using System.Text;
-    using System.Threading.Tasks;
+    using Models;
+    using Models.Customers;
+    using Models.Subscriptions;
 
     /// <summary>
     /// Deletes a partner customer Relationship production account.
     /// </summary>
-    class DeletePartnerCustomerRelationship : BasePartnerScenario
+    public class DeletePartnerCustomerRelationship : BasePartnerScenario
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="DeletePartnerCustomerRelationship"/> class.
@@ -27,8 +22,8 @@ namespace Microsoft.Store.PartnerCenter.Samples.Customers
         /// <param name="context">The scenario context.</param>
         public DeletePartnerCustomerRelationship(IScenarioContext context) : base("Delete Partner Relationship", context)
         {
-
         }
+
         /// <summary>
         /// Executes the scenario.
         /// </summary>
@@ -42,11 +37,12 @@ namespace Microsoft.Store.PartnerCenter.Samples.Customers
             // Verify that there are no active subscriptions
             ResourceCollection<Subscription> customerSubscriptions = partnerOperations.Customers.ById(customerIdToDeleteRelationshipOf).Subscriptions.Get();
             IList<Subscription> subscriptions = new List<Subscription>(customerSubscriptions.Items);
+
             foreach (Subscription customerSubscription in subscriptions)
             {
                 if (customerSubscription.Status == SubscriptionStatus.Active)
                 {
-                    this.Context.ConsoleHelper.Warning(String.Format("Subscription with ID :{0}  OfferName: {1} cannot be in active state, ", customerSubscription.Id, customerSubscription.OfferName));
+                    this.Context.ConsoleHelper.Warning(string.Format("Subscription with ID :{0}  OfferName: {1} cannot be in active state, ", customerSubscription.Id, customerSubscription.OfferName));
                     this.Context.ConsoleHelper.Warning("Please Suspend all the Subscriptions and try again. Aborting the delete customer relationship operation");
                     this.Context.ConsoleHelper.StopProgress();
                     return;
@@ -55,13 +51,19 @@ namespace Microsoft.Store.PartnerCenter.Samples.Customers
 
             // Delete the customer relationship to partner
             this.Context.ConsoleHelper.StartProgress("Deleting customer Partner Relationship");
-            Customer customer = new Customer();
-            customer.RelationshipToPartner = CustomerPartnerRelationship.None;
+
+            Customer customer = new Customer
+            {
+                RelationshipToPartner = CustomerPartnerRelationship.None
+            };
+
             customer = partnerOperations.Customers.ById(customerIdToDeleteRelationshipOf).Patch(customer);
+
             if (customer.RelationshipToPartner == CustomerPartnerRelationship.None)
             {
                 this.Context.ConsoleHelper.Success("Customer Partner Relationship successfully deleted");
             }
+
             this.Context.ConsoleHelper.StopProgress();
         }
     }

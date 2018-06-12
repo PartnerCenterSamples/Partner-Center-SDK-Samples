@@ -50,10 +50,7 @@ namespace Microsoft.Store.PartnerCenter.Samples.Utilization
                 // print the current utilization results page
                 this.Context.ConsoleHelper.WriteObject(
                     utilizationRecordEnumerator.Current,
-                    string.Format(
-                        CultureInfo.InvariantCulture,
-                        "Azure Utilization Records Page: {0}",
-                        pageNumber++));
+                    string.Format(CultureInfo.InvariantCulture, "Azure Utilization Records Page: {0}", pageNumber++));
 
                 Console.WriteLine();
                 Console.Write("Press any key to retrieve the next Azure utilization records page");

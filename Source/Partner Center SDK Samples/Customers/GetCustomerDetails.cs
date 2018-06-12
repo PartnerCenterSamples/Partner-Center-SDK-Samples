@@ -6,11 +6,6 @@
 
 namespace Microsoft.Store.PartnerCenter.Samples.Customers
 {
-    using System;
-    using System.Globalization;
-    using Store.PartnerCenter.Models;
-    using Store.PartnerCenter.Models.Customers;
-
     /// <summary>
     /// Gets a single customer details.
     /// </summary>

@@ -6,7 +6,6 @@
 
 namespace Microsoft.Store.PartnerCenter.Samples.Subscriptions
 {
-    using System.Globalization;
     using System.Linq;
 
     /// <summary>

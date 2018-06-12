@@ -6,9 +6,6 @@
 
 namespace Microsoft.Store.PartnerCenter.Samples.CustomerDirectoryRoles
 {
-    using System;
-    using Exceptions;
-
     /// <summary>
     /// Showcases get customer users by directory role service.
     /// </summary>
