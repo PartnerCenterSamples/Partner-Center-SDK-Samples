@@ -6,14 +6,15 @@
 
 namespace Microsoft.Store.PartnerCenter.Samples.CustomerUser
 {
-    using Models.Licenses;
     using System;
     using System.Collections.Generic;
     using System.Linq;
+    using Models.Licenses;
+
     /// <summary>
     /// Assign customer user a group1 license.
     /// </summary>
-    class CustomerUserAssignGroup1Licenses : BasePartnerScenario
+    public class CustomerUserAssignGroup1Licenses : BasePartnerScenario
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="CustomerUserAssignGroup1Licenses"/> class.
@@ -22,6 +23,10 @@ namespace Microsoft.Store.PartnerCenter.Samples.CustomerUser
         public CustomerUserAssignGroup1Licenses(IScenarioContext context) : base("Assign customer user a group1 license", context)
         {
         }
+
+        /// <summary>
+        /// Executes the scenario.
+        /// </summary>
         protected override void RunScenario()
         {
             // Get customer Id of the entered customer user.
@@ -48,8 +53,7 @@ namespace Microsoft.Store.PartnerCenter.Samples.CustomerUser
 
             // Select the first subscribed sku.
             SubscribedSku sku = customerGroup1SubscribedSkus.Items.First();
-
-
+        
             // Assigning first subscribed sku as the license
             license.SkuId = sku.ProductSku.Id;
             license.ExcludedPlans = null;
@@ -69,7 +73,6 @@ namespace Microsoft.Store.PartnerCenter.Samples.CustomerUser
             // Get customer user assigned licenses information after assigning the license.
             var customerUserAssignedLicenses = partnerOperations.Customers.ById(selectedCustomerId).Users.ById(selectedCustomerUserId).Licenses.Get(groupIds);
             this.Context.ConsoleHelper.StopProgress();
-
 
             License userLicense = customerUserAssignedLicenses.Items.First(licenseItem => licenseItem.ProductSku.Id == license.SkuId);
             Console.WriteLine("License was successfully assigned to the user.");

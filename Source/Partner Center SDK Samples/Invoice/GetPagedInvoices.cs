@@ -15,7 +15,6 @@ namespace Microsoft.Store.PartnerCenter.Samples.Invoice
     /// </summary>
     public class GetPagedInvoices : BasePartnerScenario
     {
-
         /// <summary>
         /// The Invoice page size.
         /// </summary>

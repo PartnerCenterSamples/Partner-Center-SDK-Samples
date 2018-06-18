@@ -84,7 +84,6 @@ namespace Microsoft.Store.PartnerCenter.Samples.Configuration
             }
         }
 
-
         /// <summary>
         /// Gets the configured ID of the configuration policy.
         /// </summary>

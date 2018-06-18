@@ -6,9 +6,6 @@
 
 namespace Microsoft.Store.PartnerCenter.Samples.CustomerUser
 {
-    using System;
-    using Exceptions;
-
     /// <summary>
     /// Gets customer user collection.
     /// </summary>

@@ -6,8 +6,8 @@
 
 namespace Microsoft.Store.PartnerCenter.Samples.DevicesDeployment
 {
-    using Microsoft.Store.PartnerCenter.Models.DevicesDeployment;
     using System.Collections.Generic;
+    using Microsoft.Store.PartnerCenter.Models.DevicesDeployment;
 
     /// <summary>
     /// Creates a new configuration policy for devices.

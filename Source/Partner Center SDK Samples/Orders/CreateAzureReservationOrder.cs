@@ -7,10 +7,10 @@
 namespace Microsoft.Store.PartnerCenter.Samples.Orders
 {
     using System;
-    using System.Linq;
     using System.Collections.Generic;
-    using Store.PartnerCenter.Models.Orders;
+    using System.Linq;
     using Microsoft.Store.PartnerCenter.Models.Offers;
+    using Store.PartnerCenter.Models.Orders;
 
     /// <summary>
     /// A scenario that creates a new Azure RI order for a customer.
@@ -41,7 +41,7 @@ namespace Microsoft.Store.PartnerCenter.Samples.Orders
             var sku = partnerOperations.Products.ByCountry(countryCode).ById(productId).Skus.ById(skuId).Get();
             var availabilities = partnerOperations.Products.ByCountry(countryCode).ById(productId).Skus.ById(skuId).Availabilities.Get();
 
-            if ((sku.DynamicAttributes == null) || (string.IsNullOrEmpty(Convert.ToString(sku.DynamicAttributes["duration"]))))
+            if ((sku.DynamicAttributes == null) || string.IsNullOrEmpty(Convert.ToString(sku.DynamicAttributes["duration"])))
             {
                 this.Context.ConsoleHelper.Warning("Invalid Azure catalog item ID.");
             }
@@ -87,4 +87,3 @@ namespace Microsoft.Store.PartnerCenter.Samples.Orders
         }
     }
 }
-

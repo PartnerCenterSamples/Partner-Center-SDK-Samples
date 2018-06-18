@@ -6,7 +6,6 @@
 
 namespace Microsoft.Store.PartnerCenter.Samples.IndirectModel
 {
-    using System;
     using System.Globalization;
 
     /// <summary>

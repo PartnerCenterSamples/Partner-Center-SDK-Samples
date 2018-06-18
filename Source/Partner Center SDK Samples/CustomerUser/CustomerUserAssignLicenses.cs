@@ -9,7 +9,6 @@ namespace Microsoft.Store.PartnerCenter.Samples.CustomerUser
     using System;
     using System.Collections.Generic;
     using System.Linq;
-    using Exceptions;
     using Models.Licenses;
 
     /// <summary>

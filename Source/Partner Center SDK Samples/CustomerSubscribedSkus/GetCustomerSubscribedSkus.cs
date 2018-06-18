@@ -7,7 +7,6 @@
 namespace Microsoft.Store.PartnerCenter.Samples.CustomerSubscribedSkus
 {
     using System;
-    using Exceptions;
 
     /// <summary>
     /// Gets Customer Subscribed SKUs details.

@@ -11,11 +11,12 @@ namespace Microsoft.Store.PartnerCenter.Samples.Invoice
     /// <summary>
     /// Gets the invoice statement for an invoice id.
     /// </summary>
-    public class GetInvoiceStatement: BasePartnerScenario
-    {/// <summary>
-     /// Initializes a new instance of the <see cref="GetInvoiceStatement"/> class.
-     /// </summary>
-     /// <param name="context">The scenario context.</param>
+    public class GetInvoiceStatement : BasePartnerScenario
+    {
+        /// <summary>
+        /// Initializes a new instance of the <see cref="GetInvoiceStatement"/> class.
+        /// </summary>
+        /// <param name="context">The scenario context.</param>
         public GetInvoiceStatement(IScenarioContext context) : base("Get Invoice Statement by Id", context)
         {
         }

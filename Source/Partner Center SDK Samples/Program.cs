@@ -7,6 +7,7 @@
 namespace Microsoft.Store.PartnerCenter.Samples
 {
     using Analytics;
+    using Carts;
     using Context;
     using CustomerDirectoryRoles;
     using CustomerProducts;
@@ -23,7 +24,6 @@ namespace Microsoft.Store.PartnerCenter.Samples
     using Models.Query;
     using Offers;
     using Orders;
-    using Carts;
     using Products;
     using Profile;
     using RateCards;
@@ -37,7 +37,7 @@ namespace Microsoft.Store.PartnerCenter.Samples
     /// <summary>
     /// The main program class for the partner center .NET SDK samples.
     /// </summary>
-    public class Program
+    public static class Program
     {
         /// <summary>
         /// The main entry function.
@@ -448,13 +448,13 @@ namespace Microsoft.Store.PartnerCenter.Samples
         }
 
         /// <summary>
-        /// Gets the azure shared(CSL) rate card scenarios.
+        /// Gets the Azure shared services rate card scenarios.
         /// </summary>
         /// <param name="context">A scenario context.</param>
-        /// <returns>azure shared(csl) rate card scenarios.</returns>
+        /// <returns>Azure shared services rate card scenarios.</returns>
         private static IPartnerScenario GetSharedRateCardScenarios(ScenarioContext context)
         {
-            return new AggregatePartnerScenario("Azure Shared(CSL) Rate card samples", new[] { new GetAzureSharedRateCard(context) }, context);
+            return new AggregatePartnerScenario("Azure Shared Services Rate card samples", new[] { new GetAzureSharedRateCard(context) }, context);
         }
 
         /// <summary>
@@ -541,7 +541,7 @@ namespace Microsoft.Store.PartnerCenter.Samples
         {
             var addressValidationScenarios = new IPartnerScenario[]
             {
-                new ValidateAddress(context)
+                new AddressValidation(context)
             };
 
             return new AggregatePartnerScenario("Address validation samples", addressValidationScenarios, context);

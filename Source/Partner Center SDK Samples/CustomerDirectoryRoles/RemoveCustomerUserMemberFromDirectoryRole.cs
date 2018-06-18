@@ -7,7 +7,6 @@
 namespace Microsoft.Store.PartnerCenter.Samples.CustomerDirectoryRoles
 {
     using System;
-    using Exceptions;
 
     /// <summary>
     /// Showcases remove customer user from directory role service.

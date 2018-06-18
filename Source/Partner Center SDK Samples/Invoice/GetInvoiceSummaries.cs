@@ -6,15 +6,13 @@
 
 namespace Microsoft.Store.PartnerCenter.Samples.Invoice
 {
-    using System;
-
     /// <summary>
     /// Gets a single partner invoice summaries.
     /// </summary>
     public class GetInvoiceSummaries : BasePartnerScenario
     {
         /// <summary>
-        /// Initializes a new instance of the <see cref="GetInvoice"/> class.
+        /// Initializes a new instance of the <see cref="GetInvoiceSummaries"/> class.
         /// </summary>
         /// <param name="context">The scenario context.</param>
         public GetInvoiceSummaries(IScenarioContext context) : base("Get partner's invoice summaries", context)

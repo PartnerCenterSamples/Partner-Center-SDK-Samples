@@ -7,7 +7,6 @@
 namespace Microsoft.Store.PartnerCenter.Samples.CustomerDirectoryRoles
 {
     using System;
-    using Exceptions;
     using Models.Roles;
 
     /// <summary>

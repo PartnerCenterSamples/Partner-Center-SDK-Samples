@@ -1,5 +1,5 @@
 ﻿// -----------------------------------------------------------------------
-// <copyright file="ValidateAddress.cs" company="Microsoft">
+// <copyright file="AddressValidation.cs" company="Microsoft">
 //      Copyright (c) Microsoft Corporation.  All rights reserved.
 // </copyright>
 // -----------------------------------------------------------------------
@@ -12,13 +12,13 @@ namespace Microsoft.Store.PartnerCenter.Samples.Validations
     /// <summary>
     /// A scenario that showcases address validation functionality.
     /// </summary>
-    public class ValidateAddress : BasePartnerScenario
+    public class AddressValidation : BasePartnerScenario
     {
         /// <summary>
-        /// Initializes a new instance of the <see cref="ValidateAddress"/> class.
+        /// Initializes a new instance of the <see cref="AddressValidation"/> class.
         /// </summary>
         /// <param name="context">The scenario context.</param>
-        public ValidateAddress(IScenarioContext context) : base("Validate address.", context)
+        public AddressValidation(IScenarioContext context) : base("Validate address.", context)
         {
         }
 

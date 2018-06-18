@@ -7,8 +7,6 @@
 namespace Microsoft.Store.PartnerCenter.Samples.CustomerUser
 {
     using System;
-    using System.Globalization;
-    using Exceptions;
     using Models.Query;
 
     /// <summary>

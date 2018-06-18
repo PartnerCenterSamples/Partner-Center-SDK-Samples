@@ -8,8 +8,6 @@ namespace Microsoft.Store.PartnerCenter.Samples.Customers
 {
     using System;
     using System.Globalization;
-    using System.Threading;
-    using Helpers;
     using Store.PartnerCenter.Models;
     using Store.PartnerCenter.Models.Customers;
 

@@ -1,13 +1,13 @@
 ﻿// -----------------------------------------------------------------------
-// <copyright file="UpdateDevices.cs" company="Microsoft">
+// <copyright file="UpdateDevicesPolicy.cs" company="Microsoft">
 //      Copyright (c) Microsoft Corporation.  All rights reserved.
 // </copyright>
 // -----------------------------------------------------------------------
 
 namespace Microsoft.Store.PartnerCenter.Samples.DevicesDeployment
 {
-    using Microsoft.Store.PartnerCenter.Models.DevicesDeployment;
     using System.Collections.Generic;
+    using Microsoft.Store.PartnerCenter.Models.DevicesDeployment;
 
     /// <summary>
     /// Updates devices with configuration policy.
@@ -43,7 +43,7 @@ namespace Microsoft.Store.PartnerCenter.Samples.DevicesDeployment
                 new Device
                 {
                     Id = selectedDeviceId,
-                    Policies=policyToBeAdded
+                    Policies = policyToBeAdded
                 }
             };
 

@@ -6,8 +6,6 @@
 
 namespace Microsoft.Store.PartnerCenter.Samples.Customers
 {
-    using System;
-    using Store.PartnerCenter.Models;
     using Store.PartnerCenter.Models.Customers;
     using Store.PartnerCenter.Models.Query;
 

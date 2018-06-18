@@ -6,8 +6,8 @@
 
 namespace Microsoft.Store.PartnerCenter.Samples.ServiceIncidents
 {
-    using Store.PartnerCenter.Models.ServiceIncidents;
     using Store.PartnerCenter.Models.Query;
+    using Store.PartnerCenter.Models.ServiceIncidents;
 
     /// <summary>
     /// Gets the list of service incidents for a partner

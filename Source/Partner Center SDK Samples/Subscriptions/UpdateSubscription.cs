@@ -6,8 +6,6 @@
 
 namespace Microsoft.Store.PartnerCenter.Samples.Subscriptions
 {
-    using System;
-
     /// <summary>
     /// A scenario that updates an existing customer subscription.
     /// </summary>

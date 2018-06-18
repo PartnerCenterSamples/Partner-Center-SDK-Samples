@@ -6,9 +6,6 @@
 
 namespace Microsoft.Store.PartnerCenter.Samples.CustomerUser
 {
-    using System;
-    using Exceptions;
-
     /// <summary>
     /// Deletes a customer user.
     /// </summary>

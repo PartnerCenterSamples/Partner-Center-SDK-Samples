@@ -5,7 +5,8 @@
 // -----------------------------------------------------------------------
 
 namespace Microsoft.Store.PartnerCenter.Samples.Subscriptions
-{   /// <summary>
+{   
+    /// <summary>
     /// A scenario that retrieves a customer subscription.
     /// </summary>
     public class UpdateSubscriptionSupportContact : BasePartnerScenario

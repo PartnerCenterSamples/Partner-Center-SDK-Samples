@@ -4,15 +4,15 @@
 // </copyright>
 // -----------------------------------------------------------------------
 
-using Microsoft.Store.PartnerCenter.Models.Offers;
-using System;
-
 namespace Microsoft.Store.PartnerCenter.Samples.Orders
 {
+    using System;
+    using Models.Offers;
+
     /// <summary>
     /// A scenario that retrieves all customer orders by billing cycle type.
     /// </summary> 
-    public class GetOrdersByBillingCycleType: BasePartnerScenario
+    public class GetOrdersByBillingCycleType : BasePartnerScenario
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="GetOrdersByBillingCycleType"/> class.

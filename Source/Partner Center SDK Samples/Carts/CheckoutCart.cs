@@ -6,9 +6,6 @@
 
 namespace Microsoft.Store.PartnerCenter.Samples.Carts
 {
-    using System.Collections.Generic;
-    using Store.PartnerCenter.Models.Carts;
-
     /// <summary>
     /// A scenario that checkout a cart for a customer.
     /// </summary>
