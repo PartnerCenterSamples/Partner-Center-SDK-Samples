@@ -3,15 +3,14 @@
 //      Copyright (c) Microsoft Corporation.  All rights reserved.
 // </copyright>
 // -----------------------------------------------------------------------
-
 namespace Microsoft.Store.PartnerCenter.Samples.CustomerUser
 {
     using System.Collections.Generic;
     using Models.Licenses;
 
-    /// <summary>
-    /// Get customer user assigned group1 and group2 licenses
-    /// </summary>
+    /// <summary> 
+    /// Get customer user assigned group1 and group2 licenses 
+    /// </summary> 
     public class CustomerUserAssignedGroup1AndGroup2Licenses : BasePartnerScenario
     {
         /// <summary>

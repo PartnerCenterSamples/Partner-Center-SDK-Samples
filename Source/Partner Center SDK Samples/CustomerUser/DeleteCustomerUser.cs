@@ -5,7 +5,7 @@
 // -----------------------------------------------------------------------
 
 namespace Microsoft.Store.PartnerCenter.Samples.CustomerUser
-{
+{    
     /// <summary>
     /// Deletes a customer user.
     /// </summary>

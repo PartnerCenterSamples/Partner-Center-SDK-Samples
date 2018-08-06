@@ -24,9 +24,9 @@ namespace Microsoft.Store.PartnerCenter.Samples.CustomerUser
         {
         }
 
-        /// <summary>
-        /// Executes the scenario.
-        /// </summary>
+        /// <summary> 
+        /// Executes the scenario. 
+        /// </summary> 
         protected override void RunScenario()
         {
             // Get customer Id of the entered customer user.
@@ -53,7 +53,7 @@ namespace Microsoft.Store.PartnerCenter.Samples.CustomerUser
 
             // Select the first subscribed sku.
             SubscribedSku sku = customerGroup1SubscribedSkus.Items.First();
-        
+
             // Assigning first subscribed sku as the license
             license.SkuId = sku.ProductSku.Id;
             license.ExcludedPlans = null;

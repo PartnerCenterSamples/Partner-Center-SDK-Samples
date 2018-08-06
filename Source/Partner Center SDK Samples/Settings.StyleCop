@@ -1,11 +1,4 @@
 <StyleCopSettings Version="105">
-  <GlobalSettings>
-    <CollectionProperty Name="RecognizedWords">
-      <Value>sku</Value>
-      <Value>skus</Value>
-    </CollectionProperty>
-    <BooleanProperty Name="AutoCheckForUpdate">False</BooleanProperty>
-  </GlobalSettings>
   <Parsers>
     <Parser ParserId="StyleCop.CSharp.CsParser">
       <ParserSettings>

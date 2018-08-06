@@ -37,7 +37,6 @@ namespace Microsoft.Store.PartnerCenter.Samples.Customers
             // Verify that there are no active subscriptions
             ResourceCollection<Subscription> customerSubscriptions = partnerOperations.Customers.ById(customerIdToDeleteRelationshipOf).Subscriptions.Get();
             IList<Subscription> subscriptions = new List<Subscription>(customerSubscriptions.Items);
-
             foreach (Subscription customerSubscription in subscriptions)
             {
                 if (customerSubscription.Status == SubscriptionStatus.Active)
@@ -51,12 +50,11 @@ namespace Microsoft.Store.PartnerCenter.Samples.Customers
 
             // Delete the customer relationship to partner
             this.Context.ConsoleHelper.StartProgress("Deleting customer Partner Relationship");
-
             Customer customer = new Customer
             {
                 RelationshipToPartner = CustomerPartnerRelationship.None
             };
-
+            
             customer = partnerOperations.Customers.ById(customerIdToDeleteRelationshipOf).Patch(customer);
 
             if (customer.RelationshipToPartner == CustomerPartnerRelationship.None)

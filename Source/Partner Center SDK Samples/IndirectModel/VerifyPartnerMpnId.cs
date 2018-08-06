@@ -6,7 +6,7 @@
 
 namespace Microsoft.Store.PartnerCenter.Samples.IndirectModel
 {
-    using System.Globalization;
+     using System.Globalization;
 
     /// <summary>
     /// A scenario that verifies a partner MPN ID.

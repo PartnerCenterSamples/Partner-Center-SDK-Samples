@@ -5,7 +5,7 @@
 // -----------------------------------------------------------------------
 
 namespace Microsoft.Store.PartnerCenter.Samples.CustomerUser
-{
+{    
     /// <summary>
     /// Gets customer user collection.
     /// </summary>
