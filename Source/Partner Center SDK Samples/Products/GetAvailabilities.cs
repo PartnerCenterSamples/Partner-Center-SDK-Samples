@@ -9,7 +9,7 @@ namespace Microsoft.Store.PartnerCenter.Samples.Products
     using System.Globalization;
 
     /// <summary>
-    /// A scenario that retrieves the availabilities of a product's sku.
+    /// A scenario that retrieves the availabilities of a product's SKU.
     /// </summary>
     public class GetAvailabilities : BasePartnerScenario
     {

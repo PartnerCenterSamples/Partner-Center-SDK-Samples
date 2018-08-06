@@ -42,31 +42,19 @@ namespace Microsoft.Store.PartnerCenter.Samples.Entitlements
 
                 try
                 {
-                    switch (entitlement.EntitlementType)
+                    switch (entitlement.EntitlementType.ToLowerInvariant())
                     {
-                        case EntitlementType.VirtualMachineReservedInstance:
-                            var virtualMachineReservedInstanceArtifactDetailsLink =
-                                ((VirtualMachineReservedInstanceArtifact)entitlement.EntitledArtifacts.FirstOrDefault(x => x.ArtifactType == ArtifactType.VirtualMachineReservedInstance))?.Link;
+                        case "reservedinstance":
+                            var reservedInstanceArtifactDetailsLink =
+                                ((ReservedInstanceArtifact)entitlement.EntitledArtifacts.FirstOrDefault(x => string.Equals(x.ArtifactType, "ReservedInstance", StringComparison.OrdinalIgnoreCase)))?.Link;
 
-                            if (virtualMachineReservedInstanceArtifactDetailsLink != null)
+                            if (reservedInstanceArtifactDetailsLink != null)
                             {
-                                var virtualMachineReservedInstanceArtifactDetails =
-                                    virtualMachineReservedInstanceArtifactDetailsLink
-                                        .InvokeAsync<VirtualMachineReservedInstanceArtifactDetails>(partnerOperations)
+                                var reservedInstanceArtifactDetails =
+                                    reservedInstanceArtifactDetailsLink
+                                        .InvokeAsync<ReservedInstanceArtifactDetails>(partnerOperations)
                                         .Result;
-                                this.Context.ConsoleHelper.WriteObject(virtualMachineReservedInstanceArtifactDetails);
-                            }
-
-                            break;
-
-                        case EntitlementType.Software:
-                            var productKeyArtifactLink = ((ProductKeyArtifact)entitlement.EntitledArtifacts.FirstOrDefault(x => x.ArtifactType == ArtifactType.ProductKey))?.Link;
-
-                            // ProductKeyLink could be null when there are no keys.
-                            if (productKeyArtifactLink != null)
-                            {
-                                var productKeyArtifactDetails = productKeyArtifactLink.InvokeAsync<ProductKeyArtifactDetails>(partnerOperations).Result;
-                                this.Context.ConsoleHelper.WriteObject(productKeyArtifactDetails);
+                                this.Context.ConsoleHelper.WriteObject(reservedInstanceArtifactDetails);
                             }
 
                             break;

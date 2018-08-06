@@ -7,7 +7,7 @@
 namespace Microsoft.Store.PartnerCenter.Samples.Orders
 {
     using System;
-    using Models.Offers;
+    using Microsoft.Store.PartnerCenter.Models.Offers;
 
     /// <summary>
     /// A scenario that retrieves all customer orders by billing cycle type.

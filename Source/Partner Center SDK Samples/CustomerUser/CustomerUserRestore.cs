@@ -7,7 +7,7 @@
 namespace Microsoft.Store.PartnerCenter.Samples.CustomerUser
 {
     using Models.Users;
-
+        
     /// <summary>
     /// Showcases customer user restore API.
     /// </summary>

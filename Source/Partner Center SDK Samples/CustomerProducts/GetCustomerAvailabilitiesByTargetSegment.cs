@@ -9,7 +9,7 @@ namespace Microsoft.Store.PartnerCenter.Samples.CustomerProducts
     using System.Globalization;
 
     /// <summary>
-    /// A scenario that retrieves the availabilities of a product's sku for a customer that target a specific segment.
+    /// A scenario that retrieves the availabilities of a product's SKU for a customer that target a specific segment.
     /// </summary>
     public class GetCustomerAvailabilitiesByTargetSegment : BasePartnerScenario
     {

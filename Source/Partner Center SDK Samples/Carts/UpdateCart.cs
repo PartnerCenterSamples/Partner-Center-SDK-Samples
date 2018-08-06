@@ -6,9 +6,10 @@
 
 namespace Microsoft.Store.PartnerCenter.Samples.Carts
 {
+    using System;
     using System.Linq;
     using Store.PartnerCenter.Models.Carts;
-
+    
     /// <summary>
     /// A scenario that updates a new cart for a customer.
     /// </summary>
