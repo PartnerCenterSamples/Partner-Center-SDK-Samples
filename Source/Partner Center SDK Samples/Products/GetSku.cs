@@ -9,7 +9,7 @@ namespace Microsoft.Store.PartnerCenter.Samples.Products
     using System.Globalization;
 
     /// <summary>
-    /// A scenario that retrieves details of a product's sku.
+    /// A scenario that retrieves details of a product's SKU.
     /// </summary>
     public class GetSku : BasePartnerScenario
     {

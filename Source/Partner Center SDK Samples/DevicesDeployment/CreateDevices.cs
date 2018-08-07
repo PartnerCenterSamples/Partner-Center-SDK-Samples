@@ -49,7 +49,7 @@ namespace Microsoft.Store.PartnerCenter.Samples.DevicesDeployment
                     SerialNumber = "2R9-ZNP67"
                 }
             };
-           
+
             this.Context.ConsoleHelper.WriteObject(devicesToBeUploaded, "New Devices");
             this.Context.ConsoleHelper.StartProgress("Creating Devices");
 
