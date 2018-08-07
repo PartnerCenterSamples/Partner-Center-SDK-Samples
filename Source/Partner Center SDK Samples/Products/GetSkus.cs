@@ -9,7 +9,7 @@ namespace Microsoft.Store.PartnerCenter.Samples.Products
     using System.Globalization;
 
     /// <summary>
-    /// A scenario that retrieves all the skus related to a product that are supported in a country.
+    /// A scenario that retrieves all the SKUs related to a product that are supported in a country.
     /// </summary>
     public class GetSkus : BasePartnerScenario
     {

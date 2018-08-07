@@ -6,6 +6,7 @@
 
 namespace Microsoft.Store.PartnerCenter.Samples
 {
+    using Agreements;
     using Analytics;
     using Carts;
     using Context;
@@ -50,6 +51,7 @@ namespace Microsoft.Store.PartnerCenter.Samples
             IPartnerScenario[] mainScenarios = new[]
             {
                 Program.GetCustomerScenarios(context),
+                Program.GetAgreementsScenarios(context),
                 Program.GetOfferScenarios(context),
                 Program.GetProductScenarios(context),
                 Program.GetCustomerProductsScenarios(context),
@@ -136,6 +138,23 @@ namespace Microsoft.Store.PartnerCenter.Samples
             };
 
             return new AggregatePartnerScenario("Devices", devicesScenarios, context);
+        }
+
+        /// <summary>
+        /// Gets the agreements scenario.
+        /// </summary>
+        /// <param name="context">A scenario context.</param>
+        /// <returns>The agreements scenarios.</returns>
+        private static IPartnerScenario GetAgreementsScenarios(ScenarioContext context)
+        {
+            var agreementsScenario = new IPartnerScenario[]
+            {
+                new GetAgreementDetails(context),
+                new GetCustomerAgreements(context),
+                new CreateCustomerAgreement(context), 
+            };
+
+            return new AggregatePartnerScenario("Agreements", agreementsScenario, context);
         }
 
         /// <summary>

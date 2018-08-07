@@ -285,10 +285,10 @@ namespace Microsoft.Store.PartnerCenter.Samples
         }
 
         /// <summary>
-        /// Obtains a sku ID to work with from the configuration if set there or prompts the user to enter it.
+        /// Obtains a SKU ID to work with from the configuration if set there or prompts the user to enter it.
         /// </summary>
         /// <param name="promptMessage">An optional custom prompt message.</param>
-        /// <returns>The sku ID.</returns>
+        /// <returns>The SKU ID.</returns>
         protected string ObtainSkuId(string promptMessage = default(string))
         {
             return this.ObtainValue(
@@ -476,12 +476,12 @@ namespace Microsoft.Store.PartnerCenter.Samples
         /// Runs the scenario logic. This is delegated to the implementing sub class.
         /// </summary>
         protected abstract void RunScenario();
-
-        /// <summary>
-        /// Obtain billing cycle type to work with the configuration if set there or prompts the user to enter it.
-        /// </summary>
-        /// <param name="promptMessage">An optional custom prompt message</param>
-        /// <returns>Billing cycle type</returns>
+        
+        /// <summary> 
+        /// Obtain billing cycle type to work with the configuration if set there or prompts the user to enter it. 
+        /// </summary> 
+        /// <param name="promptMessage">An optional custom prompt message</param> 
+        /// <returns>Billing cycle type</returns> 
         protected string ObtainBillingCycleType(string promptMessage = default(string))
         {
             return this.ObtainValue(

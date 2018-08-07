@@ -239,7 +239,7 @@ namespace Microsoft.Store.PartnerCenter.Samples.Configuration
         }
 
         /// <summary>
-        /// Gets the configured sku ID.
+        /// Gets the configured SKU ID.
         /// </summary>
         public string DefaultSkuId
         {
@@ -312,6 +312,25 @@ namespace Microsoft.Store.PartnerCenter.Samples.Configuration
             get
             {
                 return this.ConfigurationSection["DefaultSupportTopicId"];
+            }
+        }
+
+        /// <summary>
+        /// Gets the configured agreement template ID for create new customer agreements.
+        /// </summary>
+        public string DefaultAgreementTemplateId
+        {
+            get { return this.ConfigurationSection["DefaultAgreementTemplateId"]; }
+        }
+
+        /// <summary>
+        /// Gets the partner's user ID for creating new customer agreement.
+        /// </summary>
+        public string DefaultPartnerUserId
+        {
+            get
+            {
+                return this.ConfigurationSection["DefaultPartnerUserId"];
             }
         }
 
