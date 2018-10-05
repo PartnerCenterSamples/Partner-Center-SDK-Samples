@@ -126,14 +126,14 @@ namespace Microsoft.Store.PartnerCenter.Samples
             {
                 new CreateConfigurationPolicy(context),
                 new GetAllConfigurationPolicies(context),
-                new UpdateConfigurationPolicy(context),                
+                new UpdateConfigurationPolicy(context),
                 new DeleteConfigurationPolicy(context),
                 new CreateDeviceBatch(context),
                 new GetDevicesBatches(context),
                 new CreateDevices(context),
                 new GetDevices(context),
                 new UpdateDevicesPolicy(context),
-                new DeleteDevice(context),                
+                new DeleteDevice(context),
                 new GetBatchUploadStatus(context)
             };
 
@@ -151,7 +151,8 @@ namespace Microsoft.Store.PartnerCenter.Samples
             {
                 new GetAgreementDetails(context),
                 new GetCustomerAgreements(context),
-                new CreateCustomerAgreement(context), 
+                new GetAllCustomersAgreements(context),
+                new CreateCustomerAgreement(context),
             };
 
             return new AggregatePartnerScenario("Agreements", agreementsScenario, context);
