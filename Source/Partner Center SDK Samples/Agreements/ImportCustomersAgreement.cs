@@ -1,4 +1,4 @@
-// <copyright file="ImportCustomersAgreement.cs" company="Microsoft">
+﻿// <copyright file="ImportCustomersAgreement.cs" company="Microsoft">
 //      Copyright (c) Microsoft Corporation.  All rights reserved.
 // </copyright>
 // -----------------------------------------------------------------------
